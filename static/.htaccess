@@ -166,7 +166,7 @@
     RewriteRule .* "/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index.html%{ENV:W3TC_ENC}" [L]
 
 
-    RewriteRule ^lines1$ https://scratch.mit.edu/projects/82775368/ [NE,R,L]
+    RewriteRule ^lines$ https://scratch.mit.edu/projects/82775368/ [NE,R,L]
     RewriteRule ^lines2$ https://scratch.mit.edu/projects/82775470/ [NE,R,L]
     RewriteRule ^lines3$ https://scratch.mit.edu/projects/82775524/ [NE,R,L]
 </IfModule>
