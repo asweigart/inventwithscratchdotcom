@@ -166,9 +166,47 @@
     RewriteRule .* "/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index.html%{ENV:W3TC_ENC}" [L]
 
 
+
+    # RewriteRule ^explosions$ /Explosions/ [NE,R,L]
+    # RewriteRule ^explosion$ /Explosions/ [NE,R,L]
+    # RewriteRule ^Explosions$ /Explosions/ [NE,R,L]
+
+    # Skeleton project files
+    # RewriteRule ^$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^basketball-skeleton$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^asteroidbreaker-skeleton$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer-skeleton$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+
+
+
     RewriteRule ^lines$ https://scratch.mit.edu/projects/82775368/ [NE,R,L]
     RewriteRule ^lines2$ https://scratch.mit.edu/projects/82775470/ [NE,R,L]
     RewriteRule ^lines3$ https://scratch.mit.edu/projects/82775524/ [NE,R,L]
+
+    # RewriteRule ^platformer1$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer2$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer3$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer4$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer5$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer6$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer7$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer8$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer9$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+    # RewriteRule ^platformer10$ https://scratch.mit.edu/projects/???/ [NE,R,L]
+
+
+
+
+
+
+
+
+
 </IfModule>
 # END W3TC Page Cache core
 # BEGIN WordPress
