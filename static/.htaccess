@@ -205,6 +205,9 @@
     RewriteRule ^lines3$ https://scratch.mit.edu/projects/106934048/ [NE,R,L]
     RewriteRule ^lines3/$ https://scratch.mit.edu/projects/106934048/ [NE,R,L]
 
+    RewriteRule ^linescode$ https://inventwithscratch.com/images/linescode.png [NE,R,L]
+    RewriteRule ^linescode/$ https://inventwithscratch.com/images/linescode.png [NE,R,L]
+
     # maze
     RewriteRule ^maze$ https://scratch.mit.edu/projects/106934188/ [NE,R,L]
     RewriteRule ^maze/$ https://scratch.mit.edu/projects/106934188/ [NE,R,L]
@@ -213,11 +216,17 @@
     RewriteRule ^maze3$ https://scratch.mit.edu/projects/106934279/ [NE,R,L]
     RewriteRule ^maze3/$ https://scratch.mit.edu/projects/106934279/ [NE,R,L]
 
-    # brick
+    RewriteRule ^mazecode$ https://inventwithscratch.com/images/mazecode.png [NE,R,L]
+    RewriteRule ^mazecode/$ https://inventwithscratch.com/images/mazecode.png [NE,R,L]
+
+    # brick breaker
     RewriteRule ^brickbreaker$ https://scratch.mit.edu/projects/106934476/ [NE,R,L]
     RewriteRule ^brickbreaker/$ https://scratch.mit.edu/projects/106934476/ [NE,R,L]
     RewriteRule ^brickbreaker2$ https://scratch.mit.edu/projects/106934533/ [NE,R,L]
     RewriteRule ^brickbreaker2/$ https://scratch.mit.edu/projects/106934533/ [NE,R,L]
+
+    RewriteRule ^brickbreakercode$ https://inventwithscratch.com/images/brickbreakercode.png [NE,R,L]
+    RewriteRule ^brickbreakercode/$ https://inventwithscratch.com/images/brickbreakercode.png [NE,R,L]
 
     # basketball
     RewriteRule ^basketball$ https://scratch.mit.edu/projects/106934555/ [NE,R,L]
@@ -226,6 +235,9 @@
     RewriteRule ^basketball2/$ https://scratch.mit.edu/projects/106934585/ [NE,R,L]
     RewriteRule ^basketball3$ https://scratch.mit.edu/projects/106934631/ [NE,R,L]
     RewriteRule ^basketball3/$ https://scratch.mit.edu/projects/106934631/ [NE,R,L]
+
+    RewriteRule ^basketballcode$ https://inventwithscratch.com/images/basketballcode.png [NE,R,L]
+    RewriteRule ^basketballcode/$ https://inventwithscratch.com/images/basketballcode.png [NE,R,L]
 
     # snake
     RewriteRule ^snake$ https://scratch.mit.edu/projects/106936324/ [NE,R,L]
@@ -237,10 +249,16 @@
     RewriteRule ^snake4$ https://scratch.mit.edu/projects/106936407/ [NE,R,L]
     RewriteRule ^snake4/$ https://scratch.mit.edu/projects/106936407/ [NE,R,L]
 
-    # fruit
+    RewriteRule ^snakecode$ https://inventwithscratch.com/images/snakecode.png [NE,R,L]
+    RewriteRule ^snakecode/$ https://inventwithscratch.com/images/snakecode.png [NE,R,L]
+
+    # fruit slicer
     RewriteRule ^fruitslicer$ https://scratch.mit.edu/projects/106937218/ [NE,R,L]
     RewriteRule ^fruitslicer/$ https://scratch.mit.edu/projects/106937218/ [NE,R,L]
     #(v2 and v3 missing)
+
+    RewriteRule ^fruitslicercode$ https://inventwithscratch.com/images/fruitslicercode.png [NE,R,L]
+    RewriteRule ^fruitslicercode/$ https://inventwithscratch.com/images/fruitslicercode.png [NE,R,L]
 
     # asteroid
     RewriteRule ^asteroidbreaker$ https://scratch.mit.edu/projects/106938268/ [NE,R,L]
@@ -250,9 +268,15 @@
     RewriteRule ^asteroidbreaker3$ https://scratch.mit.edu/projects/106938314/ [NE,R,L]
     RewriteRule ^asteroidbreaker3/$ https://scratch.mit.edu/projects/106938314/ [NE,R,L]
 
+    RewriteRule ^asteroidcode$ https://inventwithscratch.com/images/asteroidcode.png [NE,R,L]
+    RewriteRule ^asteroidcode/$ https://inventwithscratch.com/images/asteroidcode.png [NE,R,L]
+
     # advanced platformer
     RewriteRule ^platformer$ https://scratch.mit.edu/projects/106938555/ [NE,R,L]
     RewriteRule ^platformer/$ https://scratch.mit.edu/projects/106938555/ [NE,R,L]
+
+    RewriteRule ^platformercode$ https://inventwithscratch.com/images/platformercode.png [NE,R,L]
+    RewriteRule ^platformercode/$ https://inventwithscratch.com/images/platformercode.png [NE,R,L]
 
 </IfModule>
 # END W3TC Page Cache core
