@@ -197,6 +197,11 @@
     # RewriteRule ^platformer9$ https://scratch.mit.edu/projects/???/ [NE,R,L]
     # RewriteRule ^platformer10$ https://scratch.mit.edu/projects/???/ [NE,R,L]
 
+    # studio
+    RewriteRule ^studio$ https://scratch.mit.edu/studios/2944452/ [NE,R,L]
+    RewriteRule ^studio/$ https://scratch.mit.edu/studios/2944452/ [NE,R,L]
+
+
     # rainbow
     RewriteRule ^lines$ https://scratch.mit.edu/projects/106933902/ [NE,R,L]
     RewriteRule ^lines/$ https://scratch.mit.edu/projects/106933902/ [NE,R,L]
@@ -268,8 +273,8 @@
     RewriteRule ^asteroidbreaker3$ https://scratch.mit.edu/projects/106938314/ [NE,R,L]
     RewriteRule ^asteroidbreaker3/$ https://scratch.mit.edu/projects/106938314/ [NE,R,L]
 
-    RewriteRule ^asteroidcode$ https://inventwithscratch.com/images/asteroidcode.png [NE,R,L]
-    RewriteRule ^asteroidcode/$ https://inventwithscratch.com/images/asteroidcode.png [NE,R,L]
+    RewriteRule ^asteroidbreakercode$ https://inventwithscratch.com/images/asteroidcode.png [NE,R,L]
+    RewriteRule ^asteroidbreakercode/$ https://inventwithscratch.com/images/asteroidcode.png [NE,R,L]
 
     # advanced platformer
     RewriteRule ^platformer$ https://scratch.mit.edu/projects/106938555/ [NE,R,L]
