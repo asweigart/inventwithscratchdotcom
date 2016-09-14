@@ -287,12 +287,29 @@
     RewriteRule ^asteroidbreaker3$ https://scratch.mit.edu/projects/117513232/ [NE,R,L]
     RewriteRule ^asteroidbreaker3/$ https://scratch.mit.edu/projects/117513232/ [NE,R,L]
 
-    RewriteRule ^asteroidbreakercode$ https://inventwithscratch.com/images/asteroidcode.png [NE,R,L]
-    RewriteRule ^asteroidbreakercode/$ https://inventwithscratch.com/images/asteroidcode.png [NE,R,L]
+    RewriteRule ^asteroidbreakercode$ https://inventwithscratch.com/images/asteroidbreakercode.png [NE,R,L]
+    RewriteRule ^asteroidbreakercode/$ https://inventwithscratch.com/images/asteroidbreakercode.png [NE,R,L]
 
     # advanced platformer
+
+    RewriteRule ^platformer1$ https://scratch.mit.edu/projects/117647565/  [NE,R,L]
+    RewriteRule ^platformer1/$ https://scratch.mit.edu/projects/117647565/  [NE,R,L]
+    RewriteRule ^platformer2$ https://scratch.mit.edu/projects/117647583/  [NE,R,L]
+    RewriteRule ^platformer2/$ https://scratch.mit.edu/projects/117647583/  [NE,R,L]
+    RewriteRule ^platformer3$ https://scratch.mit.edu/projects/117647599/  [NE,R,L]
+    RewriteRule ^platformer3/$ https://scratch.mit.edu/projects/117647599/  [NE,R,L]
+    RewriteRule ^platformer4$ https://scratch.mit.edu/projects/117647612/  [NE,R,L]
+    RewriteRule ^platformer4/$ https://scratch.mit.edu/projects/117647612/  [NE,R,L]
+    RewriteRule ^platformer5$ https://scratch.mit.edu/projects/117647629/  [NE,R,L]
+    RewriteRule ^platformer5/$ https://scratch.mit.edu/projects/117647629/  [NE,R,L]
+    RewriteRule ^platformer6$ https://scratch.mit.edu/projects/117647640/  [NE,R,L]
+    RewriteRule ^platformer6/$ https://scratch.mit.edu/projects/117647640/  [NE,R,L]
+    RewriteRule ^platformer7$ https://scratch.mit.edu/projects/117647658/  [NE,R,L]
+    RewriteRule ^platformer7/$ https://scratch.mit.edu/projects/117647658/  [NE,R,L]    
     RewriteRule ^platformer$ https://scratch.mit.edu/projects/117513806/ [NE,R,L]
     RewriteRule ^platformer/$ https://scratch.mit.edu/projects/117513806/ [NE,R,L]
+
+    
 
     RewriteRule ^platformercode$ https://inventwithscratch.com/images/platformercode.png [NE,R,L]
     RewriteRule ^platformercode/$ https://inventwithscratch.com/images/platformercode.png [NE,R,L]
