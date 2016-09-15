@@ -166,6 +166,7 @@
     RewriteRule .* "/wp-content/cache/page_enhanced/%{HTTP_HOST}/%{REQUEST_URI}/_index.html%{ENV:W3TC_ENC}" [L]
 
 
+    RewriteRule ^buybook https://www.amazon.com/gp/product/1593277628/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1593277628&linkCode=as2&tag=playwithpyth-20&linkId=e1bab2be778d545e718c8aed8427ea8e [NE,R,L]
 
     RewriteRule ^pendemo$ https://scratch.mit.edu/projects/110759089/ [NE,R,L]
 
