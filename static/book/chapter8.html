@@ -1,0 +1,263 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><link href="style.css" rel="stylesheet" type="text/css" /><title>Scratch Programming Playground</title></head><body>
+
+
+
+<div id="calibre_link-11" class="calibre">
+<h2 class="h1" id="calibre_link-10"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-304" class="calibre1"></span><strong class="calibre2">8</strong><br class="calibre9" /><strong class="calibre2">ASTEROID BREAKER . . . IN SPACE!</strong></h2>
+<p class="noindent"><em class="calibre6">Asteroids</em> is a classic game developed in 1979 by Atari. Since then, many programmers have remade the game, and it’s a great programming project to make in Scratch, too. The player pilots a spaceship that must destroy space asteroids while avoiding the space pieces that break off . . . in space! (It’s a well-known fact that adding “. . . in space!” makes everything more exciting.)</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-294"></span>Instead of directly controlling where the spaceship moves, the player <em class="calibre6">pushes</em> the spaceship like a hockey puck on ice; because the player’s ship has inertia, it slides around the Stage. To slow down the spaceship, players must push it in the opposite direction. It takes skill to move the spaceship without losing control, but that’s half the fun of the game. The other half of the fun is blowing up asteroids.</p>
+<p class="indent">Before you start coding, look at the final <em class="calibre6">Asteroid Breaker</em> program at <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em>.</p>
+<div class="image"><img src="images/00208.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-203"><strong class="calibre2">SKETCH OUT THE DESIGN</strong></h3>
+<p class="noindent">Let’s draw on paper what the game should look like. In our version of the game, the player controls their spaceship with the WASD keys and aims at incoming asteroids with the mouse.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-303"></span>Here is what my sketch looks like:</p>
+<div class="image"><img src="images/00211.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">And here’s what we’ll be doing in each part:</p>
+<p class="ordert"><span class="blue1">A.</span> Make a spaceship that is pushed around</p>
+<p class="order"><span class="blue1">B.</span> Make the spaceship wrap around the edges</p>
+<p class="order"><span class="blue1">C.</span> Aim with the mouse and fire with the spacebar</p>
+<p class="order"><span class="blue1">D.</span> Make asteroids that float around</p>
+<p class="order"><span class="blue1">E.</span> Make asteroids split in two when hit</p>
+<p class="order"><span class="blue1">F.</span> Keep score and make a timer</p>
+<p class="order"><span class="blue1">G.</span> Make the spaceship explode if it is hit</p>
+<p class="indentt">If you want to save time, you can start from the skeleton project file, named <em class="calibre6">asteroidbreaker-skeleton.sb2</em>, in the resources ZIP file. Go to <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em> and download the ZIP file to your computer by right-clicking the link and selecting <strong class="calibre5">Save link as</strong> or <strong class="calibre5">Save target as</strong>. Extract all the files from the ZIP file. The skeleton project file has all the sprites already loaded, so you’ll only need to drag the code blocks into each sprite.</p>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-299"></span><a id="calibre_link-204" class="calibre4"></a><p class="h3a"><img src="images/00033.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE A SPACESHIP THAT IS PUSHED AROUND</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Before we code the exciting parts of the game, we need to set up the backdrop and sprite. We’ll make this game spacey by adding the stars backdrop and the spaceship sprite. Click the <strong class="calibre5">Choose backdrop from library</strong> button under New backdrop, select <strong class="calibre5">stars</strong>, and click <strong class="calibre5">OK</strong>.</p>
+<p class="indent">We won’t use the cat sprite that Scratch starts with, so right-click that sprite and select <strong class="calibre5">delete</strong> before continuing. Start a new project in the Scratch editor, and enter <em class="calibre6">Asteroid Breaker</em> as the project name.</p>
+<h4 class="h3" id="calibre_link-205"><strong class="calibre2">1. Create the Spaceship Sprite</strong></h4>
+<p class="noindent">We’ll use a flying saucer image for the spaceship, which you’ll find in the resources ZIP file.</p>
+<p class="indent">Click the <strong class="calibre5">Upload sprite from file</strong> button next to New sprite. Then select the <em class="calibre6">Spaceship.png</em> image file from the resources ZIP file.</p>
+<p class="indent">In the orange <em class="calibre6">Data</em> category, click <strong class="calibre5">Make a Variable</strong> and create a variable named <span class="literal1">x velocity</span>. Make <span class="literal1">x velocity</span> a For this sprite only variable. Repeat the preceding steps to create a variable named <span class="literal1">y velocity</span>.</p>
+<div class="note">
+<p class="notet"><strong class="calibre2">NOTE</strong></p>
+<p class="notep"><em class="calibre6">If For this sprite only does not appear, the Stage is selected instead of the <span class="literal1">Spaceship</span> sprite. Close the New Variable window, select the <span class="literal1">Spaceship</span> sprite, and click</em> <strong class="calibre5"><em class="calibre6">Make a Variable</em></strong> <em class="calibre6">again.</em></p>
+</div>
+<p class="indent">You’ll also need to create two variables named <span class="literal1">Score</span> and <span class="literal1">player is alive</span>, but make these variables For all sprites.</p>
+<p class="indent">Next, add the following code to the <span class="literal1">Spaceship</span> sprite. The code defines the ship’s starting position and the initial values of variables; it also contains the logic that defines the user’s controls.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-580"></span><img src="images/00214.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">You might be wondering why we didn’t reuse code from previous games in which we used the <span class="literal1"><strong class="calibre5">change x by</strong></span> or <span class="literal1"><strong class="calibre5">change y by</strong></span> block. In this program, holding down one of the WASD keys adds to or subtracts from the <span class="literal1">x velocity</span> and <span class="literal1">y velocity</span> variables. Then the code at the bottom of the script changes the x and y position of the <span class="literal1">Spaceship</span> sprite by using the values in these variables. Even after the player lets go of the key, the variables still reflect the updated position, so the spaceship continues to move.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-581"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-302" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Press the WASD keys to see how the spaceship gets pushed. Make sure all four WASD keys push the spaceship in the correct directions. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-206" class="calibre4"></a><p class="h3a"><img src="images/00161.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE SPACESHIP WRAP AROUND THE EDGES</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">When you tested the code, did you notice that the <span class="literal1">Spaceship</span> sprite stops immediately when it runs into the edge of the Stage? The reason is that Scratch prevents sprites from moving off the Stage, which is helpful in most Scratch programs. But in <em class="calibre6">Asteroid Breaker</em>, we want sprites to go off the side of the Stage and <em class="calibre6">wrap around</em> to the other side.</p>
+<div class="image"><img src="images/00215.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-207"><strong class="calibre2">2. Add the Wrap-Around Code to the Spaceship Sprite</strong></h4>
+<p class="noindent">The following code will make the spaceship travel to the other side of the Stage whenever it reaches an edge. Add this code now.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-430"></span><img src="images/00216.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The left and right edges of the Stage are at x-coordinates &ndash;240 and 240, respectively. The bottom and top edges of the Stage are at the y-coordinates &ndash;180 and 180. We use these boundaries to write code that changes the position of the <span class="literal1">Spaceship</span> sprite when it goes past these four coordinates. Whenever the <span class="literal1"><strong class="calibre5">x</strong></span> or <span class="literal1"><strong class="calibre5">y position</strong></span> of the <span class="literal1">Spaceship</span> sprite gets within 5 steps of these edges, this new code will move the <span class="literal1">Spaceship</span> sprite to the other side of the Stage. Because the <span class="literal1">x velocity</span> and <span class="literal1">y velocity</span> variables will still be moving the <span class="literal1">Spaceship</span> sprite at the same speed and in the same direction, the <span class="literal1">Spaceship</span> sprite will look like it’s moving continuously around the Stage.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-582"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure that all four edges send the <span class="literal1">Spaceship</span> sprite to the other side. Then click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-208"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-293" class="calibre1"></span><strong class="calibre2">3. Add the Random-Push Code to the Spaceship Sprite</strong></h4>
+<p class="noindent">The controls for this game offer a challenge, but let’s make playing the game even more difficult. We’ll add random little pushes to the <span class="literal1">Spaceship</span> sprite so that the player can’t just stay in the center without moving at all.</p>
+<p class="indent">Add the following code to the <span class="literal1">Spaceship</span> sprite to make random pushes happen every second:</p>
+<div class="image"><img src="images/00218.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Inside the <span class="literal1"><strong class="calibre5">forever</strong></span> loop, the <span class="literal1">x velocity</span> and <span class="literal1">y velocity</span> variables are changed by a small, random amount after a 1 second pause. This means that every second the spaceship’s movement receives a random push.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-583"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Don’t press any of the WASD keys. Wait to see if the spaceship starts moving a little on its own. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-209" class="calibre4"></a><p class="h3a"><img src="images/00178.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">AIM WITH THE MOUSE AND FIRE WITH THE SPACEBAR</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">The code that controls the <span class="literal1">Spaceship</span> sprite is complete, so let’s add energy blasts. These blasts will bust up those dangerous space asteroids! In space!</p>
+<h4 class="h3" id="calibre_link-210"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-584" class="calibre1"></span><strong class="calibre2">4. Create the Energy Blast Sprite</strong></h4>
+<p class="noindent">Scratch’s Sprite Library has a sprite we can use for the energy blasts. Click the <strong class="calibre5">Choose sprite from library</strong> button next to New sprite. Select the <span class="literal1">Ball</span> sprite and click <strong class="calibre5">OK</strong>. Open the sprite’s Info Area by clicking the <span class="circk">i</span> button, and rename it <span class="literal1">Energy Blast</span>.</p>
+<p class="indent">We want the <span class="literal1">Energy Blast</span> sprite to make a laser sound when the <span class="literal1">Spaceship</span> sprite fires it. Click the <strong class="calibre5">Sounds</strong> tab above the Blocks Area. Then click the <strong class="calibre5">Choose sound from library</strong> button under New sound. Select the <span class="literal1">laser1</span> sound and click <strong class="calibre5">OK</strong>.</p>
+<p class="indent">We’ll make clones of the <span class="literal1">Energy Blast</span> sprite, but the clones and original sprite will run different code. There is only one <span class="literal1">Energy Blast</span> sprite, but the player should be able to fire many energy blasts at once. We’ll create clones of the original <span class="literal1">Energy Blast</span> sprite so that more than one energy blast can be on the Stage. The original sprite will remain hidden; all the <span class="literal1">Energy Blast</span> sprites that appear on the Stage will be clones.</p>
+<p class="indent">We’ll use a variable named <span class="literal1">I am a clone</span> to keep track of which is the original sprite and which are clones. Click the <strong class="calibre5">Scripts</strong> tab to go back to the Scripts Area. In the orange <em class="calibre6">Data</em> category, click the <strong class="calibre5">Make a Variable</strong> button. Create a For this sprite only variable named <span class="literal1">I am a clone</span>. The original <span class="literal1">Energy Blast</span> sprite will set this variable to <span class="literal1">no</span>, and the clones will set it to <span class="literal1">yes</span>. Add the following code to the <span class="literal1">Energy Blast</span> sprite:</p>
+<div class="image"><img src="images/00219.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The original sprite hides itself at the start of the game and remains hidden. The clones it makes will appear on the Stage. Also, the sprite we’re using is too big for the game, so set its size to 10 percent to make it smaller.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-284"></span>Now add the following script to the <span class="literal1">Energy Blast</span> sprite. The player will fire an energy blast by pressing the spacebar. The original <span class="literal1">Energy Blast</span> sprite will create clones that show themselves and move toward the mouse. Since the <span class="literal1">Energy Blast</span> clones move toward the mouse, the player can move the mouse to aim the energy blasts.</p>
+<div class="image"><img src="images/00220.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The code under the <span class="literal1"><strong class="calibre5">when space key pressed</strong></span> block will run for the original sprite <em class="calibre6">and</em> the clones if we don’t give instructions that this code should only run for the original sprite. But we don’t want the existing clones to create new clones. The <span class="literal1"><strong class="calibre5">if then</strong></span> block checks that the <span class="literal1">I am a clone</span> variable is set to <span class="literal1">no</span> so that only the original <span class="literal1">Energy Blast</span> sprite runs this code and creates clones.</p>
+<div class="image"><img src="images/00222.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Obviously, the <span class="literal1">Spaceship</span> sprite can fire <span class="literal1">Energy Blast</span> clones only if the player is alive, so the code also checks that the <span class="literal1">player is alive</span> variable is set to <span class="literal1">yes</span>.</p>
+<p class="indent">Next, add the following code to the <span class="literal1">Energy Blast</span> sprite so that the clones move toward the mouse after they’ve been created.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-431"></span><img src="images/00224.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The clone starts by showing itself and moving forward. The clones should also wrap around the edges of the Stage just like the <span class="literal1">Spaceship</span> sprite, so we use similar code to do that here.</p>
+<p class="indent">Notice that the clones will set their own <span class="literal1">I am a clone</span> variable to <span class="literal1">yes</span>. This is so that the clones do not run the code in the <span class="literal1"><strong class="calibre5">when space key pressed</strong></span> script. The <span class="literal1"><strong class="calibre5">if then</strong></span> block in that script runs the code only if <span class="literal1"><strong class="calibre5">I am a clone</strong></span> is set to <span class="literal1">no</span>.</p>
+<p class="indent">The clones move forward 10 steps at a time 50 times. That means the <span class="literal1">Energy Blast</span> clones have a limited range and won’t keep moving forever. After the loop finishes repeating 50 times, the clone deletes itself and disappears from the Stage.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-585"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-298" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Aim with the mouse and press the spacebar to fire. Make sure the <span class="literal1">Energy Blast</span> clones start at the <span class="literal1">Spaceship</span> sprite and move toward the mouse. The clones should wrap around the edges of the Stage and eventually disappear. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-211" class="calibre4"></a><p class="h3a"><img src="images/00110.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE ASTEROIDS THAT FLOAT AROUND</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Now we need targets for the player to hit. The asteroids in this game float around until an <span class="literal1">Energy Blast</span> clone hits them. They’ll repeatedly break apart into two smaller asteroids until they’re small enough to be vaporized.</p>
+<h4 class="h3" id="calibre_link-212"><strong class="calibre2">5. Create the Asteroid Sprite</strong></h4>
+<p class="noindent">Add the new asteroid sprite by clicking the <strong class="calibre5">Upload sprite from file</strong> button and selecting the <em class="calibre6">asteroid.png</em> file. This file is in the resources ZIP file. Click the orange <em class="calibre6">Data</em> category, and then click the <strong class="calibre5">Make a Variable</strong> button. Create a For this sprite only variable named <span class="literal1">hits</span>. Repeat these steps to make variables named <span class="literal1">x velocity</span>, <span class="literal1">y velocity</span>, and <span class="literal1">rotation</span>. All are For this sprite only variables. In Step 6, we’ll use the <span class="literal1">hits</span> variable to keep track of how many times the asteroid has been hit and the size of the asteroid.</p>
+<p class="indent">Let’s write some code that makes the <span class="literal1">Asteroid</span> sprite create new clones that appear on the Stage; each clone will have a random velocity and rotation. The result will be an unpredictable asteroid swarm . . . in space!</p>
+<div class="image"><img src="images/00225.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Add the following scripts to the <span class="literal1">Asteroid</span> sprite.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-434"></span><img src="images/00226.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Like the <span class="literal1">Energy Blast</span> sprite, the original <span class="literal1">Asteroid</span> sprite will hide itself and generate clones. New clones are created every 8 to 12 seconds. When the clone is created, it shows itself, is assigned random velocities and rotations, and begins moving.</p>
+<p class="indent">Also, like the <span class="literal1">Spaceship</span> and <span class="literal1">Energy Blast</span> sprites, the <span class="literal1">Asteroid</span> sprites will wrap around the edges of the Stage. Add the following script to the <span class="literal1">Asteroid</span> sprite.</p>
+<div class="image"><img src="images/00227.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-586"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-300" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the <span class="literal1">Asteroid</span> sprite slowly moves and rotates and that it wraps around the edges of the Stage. Also, make sure that new clones appear every 8 to 12 seconds. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-213" class="calibre4"></a><p class="h3a"><img src="images/00172.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE ASTEROIDS SPLIT IN TWO WHEN HIT</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">When an <span class="literal1">Energy Blast</span> clone hits an <span class="literal1">Asteroid</span>, the <span class="literal1">Asteroid</span> will create two new smaller clones of itself, making it look like the <span class="literal1">Asteroid</span> on the Stage split in two.</p>
+<div class="image"><img src="images/00228.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-214"><strong class="calibre2">6. Add the Asteroid’s Splitting Code</strong></h4>
+<p class="noindent">From the Sounds tab, click the <strong class="calibre5">Choose sound from library</strong> button. Then select <span class="literal1">chomp</span> and click <strong class="calibre5">OK</strong>. The <span class="literal1">chomp</span> sound will play whenever a clone hits the asteroid.</p>
+<p class="indent">Add the following script to the <span class="literal1">Asteroid</span> sprite. You’ll need to create a new broadcast message named <span class="literal1">asteroid blasted</span>.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-587"></span><img src="images/00230.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">When an <span class="literal1">Energy Blast</span> clone hits an <span class="literal1">Asteroid</span> clone, the <span class="literal1">Asteroid</span> clone will play the <span class="literal1">chomp</span> sound effect and broadcast the <span class="literal1">asteroid blasted</span> message.</p>
+<p class="indent">Then the <span class="literal1">Asteroid</span> adds <span class="literal1">2</span> points to the <span class="literal1">Score</span> variable and increases the <span class="literal1">hits</span> variable by <span class="literal1">1</span>. The hit <span class="literal1">Asteroid</span> sprite will also shrink a little, changing its size by <span class="literal1">-25</span>, so that when it (the “parent”) clones itself twice, its “child” clones will be the smaller size. Finally, the <span class="literal1">Asteroid</span> clone deletes itself.</p>
+<div class="image"><img src="images/00231.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The two smaller child clones will have <span class="literal1">hits</span> variables that are one more than what the parent started with. The fourth time an <span class="literal1">Asteroid</span> clone is <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-361"></span>hit, the <span class="literal1">hits</span> variable is <span class="literal1">4</span>, and the code deletes the clone instead of creating two new clones. (The code after the <span class="literal1"><strong class="calibre5">delete this clone</strong></span> block doesn’t run, because the clone no longer exists.) This prevents 1 <span class="literal1">Asteroid</span> sprite from becoming 2, then 4, then 8, then 16, then 32, and exponentially more <span class="literal1">Asteroid</span> sprites forever.</p>
+<p class="indent">However, if you <em class="calibre6">do</em> want exponentially more <span class="literal1">Asteroid</span> sprites, increase the number in the <span class="literal1"><strong class="calibre5">if hits = 4 then</strong></span> blocks.</p>
+<h4 class="h3" id="calibre_link-215"><strong class="calibre2">7. Add the Asteroid Blasted Message Code to the Energy Blast Sprite</strong></h4>
+<p class="noindent">Select the <span class="literal1">Energy Blast</span> sprite in the Sprite List, and add this script to it:</p>
+<div class="image"><img src="images/00233.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">All the <span class="literal1">Energy Blast</span> clones will receive the <span class="literal1">asteroid blasted</span> message, but only those currently touching an <span class="literal1">Asteroid</span> sprite will be deleted. (One will be touching an <span class="literal1">Asteroid</span>, because the message is only broadcast by the <span class="literal1">Asteroid</span> sprite when it is touching an <span class="literal1">Energy Blast</span> sprite.) This is how an <span class="literal1">Energy Blast</span> sprite disappears after hitting an <span class="literal1">Asteroid</span>.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-588"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Try blasting some of the asteroids. Make sure the energy blast disappears and the <span class="literal1">Asteroid</span> sprite is replaced by two smaller clones. The fourth time an asteroid is hit, it should just disappear. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-216" class="calibre4"></a><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-296"></span><p class="h3a"><img src="images/00174.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">KEEP SCORE AND MAKE A TIMER</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">The <em class="calibre6">Asteroid Breaker</em> game quickly becomes challenging when many tiny asteroids are flying around the Stage. A good game strategy is to be slow and careful, finishing off small <span class="literal1">Asteroid</span> sprites before firing at larger ones. But we also want to put some pressure on the player, so let’s make the <span class="literal1">Score</span> variable start dropping by <span class="literal1">1</span> point every second and have the game end when the <span class="literal1">Score</span> is <span class="literal1">0</span>. This way, the player will have to keep up a quicker pace when blasting <span class="literal1">Asteroid</span> sprites.</p>
+<div class="image"><img src="images/00235.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-217"><strong class="calibre2">8. Create the Out of Time Sprite</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Paint new sprite</strong> button next to New sprite. In the Paint Editor, use the Text tool to write <em class="calibre6">OUT OF TIME</em> in red capital letters.</p>
+<div class="image"><img src="images/00236.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Click this new sprite’s <span class="circk">i</span> button in the Sprite List to open its Info Area. Rename the sprite <span class="literal1">Out of Time</span>.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-295"></span>Add the following script to the <span class="literal1">Out of Time</span> sprite.</p>
+<div class="image"><img src="images/00239.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">This code hides the <span class="literal1">Out of Time</span> sprite at the start of the game and decreases the <span class="literal1">Score</span> variable by <span class="literal1">1</span> after a 1 second pause. When the <span class="literal1">Score</span> variable reaches <span class="literal1">0</span>, the code shows the <span class="literal1">Out of Time</span> sprite.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-589"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the <span class="literal1">Score</span> variable decreases by <span class="literal1">1</span> point each second. When the <span class="literal1">Score</span> variable is <span class="literal1">0</span>, the <span class="literal1">Out of Time</span> sprite should display. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-218" class="calibre4"></a><p class="h3a"><img src="images/00241.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE SPACESHIP EXPLODE IF IT IS HIT</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">A player can lose the game if they don’t blast asteroids fast enough to prevent their <span class="literal1">Score</span> from reaching <span class="literal1">0</span>. But they can also lose if an asteroid hits the spaceship. Let’s add code to detect when this happens and display a cool explosion animation.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-398"></span><img src="images/00242.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-219"><strong class="calibre2">9. Upload the Explosion Sprite</strong></h4>
+<p class="noindent">Eight images are available for the frames of the explosion animation. These costumes are in the <em class="calibre6">Explosion.sprite2</em> file in the resources ZIP file.</p>
+<p class="indent">In the Scratch editor, click the <strong class="calibre5">Upload sprite from file</strong> button next to New sprite. Select <em class="calibre6">Explosion.sprite2</em> and click <strong class="calibre5">OK</strong>. The eight costumes for the explosion animation appear on the sprite’s Costumes tab.</p>
+<h4 class="h3" id="calibre_link-220"><strong class="calibre2">10. Add the Code for the Explosion Sprite</strong></h4>
+<p class="noindent">For the <span class="literal1">Explosion</span> sprite, you’ll create a new broadcast message named <span class="literal1">explode</span>. When the <span class="literal1">Explosion</span> sprite receives this message, it will appear and switch through its costumes to display the explosion animation.</p>
+<p class="indent">The <span class="literal1">Explosion</span> sprite will also play a sound effect when the explosion happens. Load the sound by clicking the <strong class="calibre5">Sounds</strong> tab above the Blocks Area. Then click the <strong class="calibre5">Choose sound from library</strong> button under New sound. Select the <span class="literal1">alien creak2</span> sound and click <strong class="calibre5">OK</strong>.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-590"></span>Add the following code to the <span class="literal1">Explosion</span> sprite:</p>
+<div class="image"><img src="images/00243.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1">Explosion</span> sprite hides until it receives the <span class="literal1">explode</span> broadcast. Then it plays a sound, goes to the position where the spaceship is, and switches its costumes seven times to create an awesome explosion animation!</p>
+<h4 class="h3" id="calibre_link-221"><strong class="calibre2">11. Add the Explode Code to the Spaceship Sprite</strong></h4>
+<p class="noindent">The <span class="literal1">Spaceship</span> sprite will broadcast the <span class="literal1">explode</span> message when it touches one of the <span class="literal1">Asteroid</span> clones. Add the following script to the <span class="literal1">Spaceship</span> sprite:</p>
+<div class="image"><img src="images/00244.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-591"></span>The explosion animation works by briefly showing one of the costumes before moving to the next costume. This is similar to the frame-by-frame animation that cartoons and flipbooks use. Each costume is a frame, and the code quickly changes costumes to make the explosion look real.</p>
+<div class="image"><img src="images/00247.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-592"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the <span class="literal1">Explosion</span> sprite is not visible when the game starts. Fly into an asteroid, and make sure the <span class="literal1">Explosion</span> sprite appears where the <span class="literal1">Spaceship</span> sprite is. Then click the red stop sign and save your program.</p>
+<p class="indent">The code for this program is too large to show here, but you can view the completed code in the resources ZIP file&mdash;the filename is <em class="calibre6">asteroidbreaker.sb2</em>.</p>
+</div>
+<h3 class="h2" id="calibre_link-222"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-297" class="calibre1"></span><strong class="calibre2">VERSION 2.0: LIMITED AMMO</strong></h3>
+<p class="noindent">Once you get the hang of the game, <em class="calibre6">Asteroid Breaker</em> can become too easy. The one feature that makes it easy is that you can fire as fast as you can press the spacebar. This action lets the player fire indiscriminately instead of carefully aiming at the asteroids. But we can change that behavior by adding a new <span class="literal1">Energy</span> variable. Firing an energy blast will reduce this variable by <span class="literal1">1</span> each time. If the <span class="literal1">Energy</span> variable is <span class="literal1">0</span>, the spaceship can’t fire. The <span class="literal1">Energy</span> variable will increase slowly over time, but it forces the player to carefully aim their shots and not waste them.</p>
+<div class="image"><img src="images/00344.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">You’ll need a variable to keep track of the spaceship’s energy level. Select the orange <em class="calibre6">Data</em> category, and click the <strong class="calibre5">Make a Variable</strong> button. Make a variable named <span class="literal1">Energy</span>, and select <strong class="calibre5">For all sprites</strong>. In the Blocks Area, make sure the checkbox next to <span class="literal1">Energy</span> is checked (just like the checkbox for <span class="literal1">Score</span> is checked) so that it will appear on the Stage.</p>
+<p class="indent">The <span class="literal1">Energy</span> variable will start at <span class="literal1">10</span> at the beginning of the game and then decrease by <span class="literal1">1</span> each time the player fires an energy blast. The player should be able to fire only if the <span class="literal1">Energy</span> variable is larger than <span class="literal1">0</span>.</p>
+<p class="indent">Modify the code in the <span class="literal1">Energy Blast</span> sprite to match the following.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-273"></span><img src="images/00022.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Script <span class="ent1">➊</span> is brand new. It first sets the <span class="literal1">Energy</span> variable to <span class="literal1">10</span> before entering the <span class="literal1"><strong class="calibre5">forever</strong></span> loop. Inside the loop, if <span class="literal1">Energy</span> is less than <span class="literal1">10</span>, it waits for 0.4 seconds before increasing <span class="literal1">Energy</span> by <span class="literal1">1</span>. This way, the <span class="literal1">Energy</span> value never goes above <span class="literal1">10</span>. Script <span class="ent1">➋</span> is slightly modified so that <span class="literal1">Energy</span> must be greater than <span class="literal1">0</span> in order for the player to fire. When an energy blast is fired, the <span class="literal1"><strong class="calibre5">change Energy by -1</strong></span> block decreases the <span class="literal1">Energy</span> value.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-593"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the <span class="literal1">Energy</span> variable is visible on the Stage near the <span class="literal1">Score</span> variable. The <span class="literal1">Energy</span> variable should be <span class="literal1">10</span> at the start of the game and decrease by <span class="literal1">1</span> each time the player presses the spacebar. When the <span class="literal1">Energy</span> variable is at <span class="literal1">0</span>, pressing the spacebar should not fire any more <span class="literal1">Energy Blast</span> clones. Also, make sure the <span class="literal1">Energy</span> variable recharges by <span class="literal1">1</span> about every half second. Then click the red stop sign and save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-223"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-301" class="calibre1"></span><strong class="calibre2">CHEAT MODE: STARBURST BOMB</strong></h3>
+<p class="noindent">The limited energy in <em class="calibre6">Asteroid Breaker</em> version 2.0 is more challenging, but let’s add a secret cheat to work around it. A cheat to have unlimited energy would be boring, so instead we’ll add a special energy bomb that fires in a starburst pattern all around the spaceship.</p>
+<p class="indent">The starburst will fire when the player presses the X key. This code is similar to the regular firing code when the player presses the spacebar.</p>
+<p class="indent">Add the following code to the <span class="literal1">Energy Blast</span> sprite:</p>
+<div class="image"><img src="images/00000.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Like the <span class="literal1"><strong class="calibre5">when space key pressed</strong></span> script, this script checks that the player is alive and that the sprite is not a clone. Only the original sprite should run this code, not the clones.</p>
+<p class="indent">Inside the <span class="literal1"><strong class="calibre5">if then</strong></span> block, the <span class="literal1">Energy Blast</span> sprite moves to the spaceship and points in the direction of the mouse. Then, the sprite clones itself 24 times. After each clone is made, the sprite changes direction by 15 degrees counterclockwise. This results in a starburst of energy blasts in all directions.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-594"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-595" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Press the X key and watch <span class="literal1">Energy Blast</span> clones fly out of the <span class="literal1">Spaceship</span> sprite in all directions. Because this cheat move is a secret, make sure the player can use it no matter what the energy level is. Then click the red stop sign and save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-224"><strong class="calibre2">SUMMARY</strong></h3>
+<p class="noindent">In this chapter, you built a game that does the following:</p>
+<p class="arrowt"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Uses a hockey-puck push style to control a spaceship</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has <span class="literal1">x velocity</span> and <span class="literal1">y velocity</span> variables to keep track of how fast the <span class="literal1">Spaceship</span> sprite is moving</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Lets sprites wrap around the edges of the Stage</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has <span class="literal1">Asteroid</span> clones that can create two smaller clones of themselves</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has variables <span class="literal1">Score</span> and <span class="literal1">Energy</span> that constantly decrease and increase, respectively, over time</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has frame-by-frame animation for an explosion</p>
+<p class="indentt">This game offers players a real challenge, but as programmers, we had to add those features one by one! The player doesn’t directly control the spaceship but instead pushes it. If we stopped coding the <span class="literal1">Spaceship</span> sprite at that point, the player could just hide in a corner, safe from asteroids, so we made all the sprites wrap around the edges. Even with that addition, the player might have tried to stay still in the center of the Stage. That’s when we added random small pushes to the spaceship.</p>
+<p class="indent">It’s difficult to avoid many small asteroids, so the player could have taken it slow and carefully finished off small asteroids before targeting large ones. At that point, we made the <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-455"></span>score decrease over time to encourage the player to fire faster. The player could also keep blasting willy-nilly without aiming carefully, so we made an <span class="literal1">Energy</span> variable to limit how fast the player could fire.</p>
+<p class="indent">Each time you add a feature to your games, keep in mind how it affects gameplay. A game that is too hard to play is frustrating, but a game that is too easy is boring. It’s all about finding a balance.</p>
+<p class="indent">The next game is the most advanced program yet: it’s a platformer game like <em class="calibre6">Super Mario Bros.</em> or <em class="calibre6">Super Meat Boy</em>. Not only will it have jumping and gravity like the <em class="calibre6">Basketball</em> game, but you’ll be able to design custom levels for it without changing the code!</p>
+<div class="sidebarb">
+<p class="sidebartb" id="calibre_link-225"><strong class="calibre2">REVIEW QUESTIONS</strong></p>
+<p class="noindent">Try to answer the following practice questions to test what you’ve learned. You probably won’t know all the answers off the top of your head, but you can explore the Scratch editor to figure out the answers. (The answers are also online at <em class="calibre6"><a href="http://www.nostarch.com/scratchplayground/" class="calibre4">http://www.nostarch.com/scratchplayground/</a></em>.)</p>
+<ol class="calibre16">
+<li value="1" class="calibre17"><p class="noindent">How does the wrap-around code work?</p></li>
+<li value="2" class="calibre17"><p class="noindent">Why does the <span class="literal1">Energy Blast</span> sprite have an <span class="literal1">I am a clone</span> variable?</p></li>
+<li value="3" class="calibre17"><p class="noindent">What prevents the <span class="literal1">Asteroid</span> clone from breaking into exponentially more pieces forever?</p></li>
+<li value="4" class="calibre17"><p class="noindent">How does the <span class="literal1">Explosion</span> sprite’s code make it look like the spaceship explodes?</p></li>
+</ol>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,166 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><link href="style.css" rel="stylesheet" type="text/css" /><title>Scratch Programming Playground</title></head><body>
+
+
+
+
+<div id="calibre_link-263" class="calibre">
+<h2 class="h1" id="calibre_link-22"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-379" class="calibre1"></span><strong class="calibre2">2</strong><br class="calibre9" /><strong class="calibre2">RAINBOW LINES IN SPACE!</strong></h2>
+<p class="noindent">In this chapter, you’ll create a cool-looking animation: a rainbow <em class="calibre6">V</em> that flies through space and leaves colorful trails behind. This program was inspired by the <em class="calibre6">demoscene</em>, a subculture of elite programmers who made amazing graphical programs starting in the 1980s.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-285"></span>Demosceners made beautiful, elaborate programs called <em class="calibre6">demos</em> that showed off their artistic, musical, and programming skills. But most amazing of all, these programs were <em class="calibre6">tiny</em>&mdash;just a few kilobytes! The program we’ll write isn’t quite as small, but it’s dramatic and colorful, and it uses only a few lines of Scratch code.</p>
+<p class="indent">Before you start coding, look at the following figure to see what the final program will look like. Then go to <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em> to play the animation.</p>
+<div class="image"><img src="images/00318.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Just like demosceners, you can make beautiful programs. Let’s create our own graphics demo in Scratch!</p>
+<h3 class="h2" id="calibre_link-48"><strong class="calibre2">SKETCH OUT THE DESIGN</strong></h3>
+<p class="noindent">The first step of turning an idea into a Scratch program is to sketch out what you want it to look like. Planning your program helps you figure out the sprites you want and how they’ll behave. I recommend drawing your ideas on paper so you can cross them out if you don’t like them and write down notes and reminders.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-416"></span>It’s also best to keep the project simple. If you start by making a complicated game like <em class="calibre6">Minecraft</em> or <em class="calibre6">Zelda</em>, you’ll quickly realize that it’s a lot of work. It’s more rewarding to finish a small project than to deal with the frustration of an unending, unfinished, and unplayable game.</p>
+<p class="indent">When you’ve completed your simple game, you can then build on top of it to make it more complex, which is the idea behind <em class="calibre6">iterative development</em>. First, you make the program work. Then, you make the program better. You can always add cool elements to the basic program after you finish it. Or, if your program becomes too complicated, you can return to your sketches and figure out what you want to remove.</p>
+<p class="indent">Don’t worry about making the sketch look nice. It’s more important to have a solid plan for the main parts of the program. In my sketch, I have three parts: A, B, and C. We will work on these parts one at a time until we’ve built the full program.</p>
+<div class="image"><img src="images/00153.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">After you’ve completed a sketch of what you want your program to do, you can start programming! Go to <em class="calibre6"><a href="https://scratch.mit.edu/" class="calibre4">https://scratch.mit.edu/</a></em>, sign up for an account on the site, and log in (having an account lets you save your programs on the Scratch website). After you’ve logged in, click the <strong class="calibre5">Create</strong> button at the <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-306"></span>top of your screen to start making your own Scratch project. Then click the text field in the top left to change the name of the project from <em class="calibre6">Untitled</em> to <em class="calibre6">Rainbow Lines</em>. Let’s begin by tackling Part A of the sketch.</p>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-49" class="calibre4"></a><p class="h3a"><img src="images/00033.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">CREATE THE SPACE BACKDROP</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">First, let’s clean up sprites we won’t use and set a background.</p>
+<h4 class="h3" id="calibre_link-50"><strong class="calibre2">1. Clean Up and Set the Stage</strong></h4>
+<p class="noindent">Every time you create a new Scratch project, you’ll see an orange cat sprite on a blank, white Stage. We don’t need the cat sprite for our program, so right-click the <span class="literal1">Sprite1</span> cat in the Sprite List, and select <strong class="calibre5">delete</strong> to remove the cat from the Stage and the Sprite List.</p>
+<div class="image"><img src="images/00036.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Click the <strong class="calibre5">Choose backdrop from library</strong> button (which looks like a landscape painting) under New backdrop.</p>
+<div class="image"><img src="images/00039.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-305"></span>The Backdrop Library window will open and display all the backdrops in alphabetical order. Select the <strong class="calibre5">stars</strong> backdrop and click <strong class="calibre5">OK</strong>.</p>
+<div class="image"><img src="images/00159.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Now the Stage’s backdrop looks like outer space!</p>
+<div class="image"><img src="images/00026.jpeg" alt="image" class="calibre3" /></div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-342"></span><a id="calibre_link-51" class="calibre4"></a><p class="h3a"><img src="images/00161.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">CREATE THREE BOUNCING DOTS</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Next, we’ll add three new sprites that represent the three points of the flying <em class="calibre6">V</em>.</p>
+<div class="image"><img src="images/00163.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-52"><strong class="calibre2">2. Paint the Dot</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Paint new sprite</strong> button (which looks like a paintbrush) next to New sprite.</p>
+<div class="image"><img src="images/00165.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">A new sprite named <span class="literal1">Sprite1</span> is created in the Sprite List. Clicking this button also switches to the Costumes tab, which contains the Paint Editor. Use the Brush tool to draw a small red dot near the crosshairs in the Paint Editor. It might help to zoom in by clicking the Zoom button (which looks like a magnifying glass) in the Paint Editor.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-351"></span><img src="images/00329.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Click the <span class="circk">i</span> button for the <span class="literal1">Sprite1</span> dot sprite to open its Info Area. (You can also open the Info Area by right-clicking the sprite and selecting <strong class="calibre5">info</strong>.)</p>
+<div class="image"><img src="images/00080.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-325"></span>Change the sprite’s name from <span class="literal1">Sprite1</span> to <span class="literal1">Dot 1</span>. Then click the <img src="images/00168.jpeg" alt="image" class="calibre3" /> button to close the Info Area and display the Sprite List again.</p>
+<div class="image"><img src="images/00170.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-53"><strong class="calibre2">3. Add Code for the Dot 1 Sprite</strong></h4>
+<p class="noindent">Now we can start programming. Click the <strong class="calibre5">Scripts</strong> tab to make the Scripts Area visible. Add the following code to the Scripts Area. You can find these blocks in the <em class="calibre6">Events</em> (brown), <em class="calibre6">Motion</em> (dark blue), <em class="calibre6">Operators</em> (green), and <em class="calibre6">Control</em> (yellow) categories. If you have trouble understanding how to drag these blocks, view the animation at <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em>.</p>
+<div class="image"><img src="images/00103.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">When you click the green flag, the <span class="literal1">Dot 1</span> sprite points in a random direction between &ndash;180 and 180 degrees. Then, the <span class="literal1"><strong class="calibre5">forever</strong></span> loop moves the sprite forward 10 steps and makes the sprite bounce when it hits the edge of the Stage. The sprite will continue to do this forever.</p>
+<p class="indent">Notice that the <span class="literal1">Dot 1</span> sprite isn’t drawing any rainbow lines yet. We’ll do that later when we’ve created more sprites.</p>
+<div class="sidebary">
+<p class="sidebarty" id="calibre_link-54"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-377" class="calibre1"></span><strong class="calibre2">EXPLORE: DIRECTION AND DEGREES</strong></p>
+<p class="noindent">Words like <em class="calibre6">up</em> or <em class="calibre6">right</em> are perfectly understood as directions by humans like you and me. But the computer needs a number to indicate an exact direction. All sprites in Scratch have their own direction number. The direction numbers are between -180 and 180 degrees. Pointing at 0 degrees is facing up. Pointing at 90 degrees is facing to the right. The following figure shows several directions and their degrees. Notice that the degrees increase in the clockwise direction and decrease in the counterclockwise direction. Also, notice that -180 and 180 degrees point in the same direction: down.</p>
+<div class="image"><img src="images/00136.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1"><strong class="calibre5">pick random -180 to 180</strong></span> block chooses a random number to use as the direction. Then the <span class="literal1"><strong class="calibre5">point in direction</strong></span> block points the sprite in that direction. This means that the sprite could be pointed in any possible direction.</p>
+<p class="indent">Let’s write a new script that demonstrates how degrees work. Open a new tab by pressing <small class="calibre15">CTRL</small>-T in your web browser, and go to <em class="calibre6"><a href="https://scratch.mit.edu/" class="calibre4">https://scratch.mit.edu/</a></em> to open a new Scratch editor. You can edit multiple Scratch programs at the same time.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-422"></span>In the Scripts Area for the cat sprite named <span class="literal1">Sprite1</span>, add the following code using blocks from the <em class="calibre6">Events</em> (brown), <em class="calibre6">Control</em> (yellow), <em class="calibre6">Motion</em> (dark blue), and <em class="calibre6">Looks</em> (purple) categories. Keep in mind that we’re writing a totally separate program from the <em class="calibre6">Rainbow Lines</em> program!</p>
+<div class="image"><img src="images/00175.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">When you run this program, the cat sprite points toward the mouse. The cat will say the direction in which it’s pointing.</p>
+<div class="image"><img src="images/00217.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Notice that the direction number changes as the cat’s direction changes.</p>
+<div class="image"><img src="images/00177.jpeg" alt="image" class="calibre3" /></div>
+</div>
+<h4 class="h3" id="calibre_link-55"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-378" class="calibre1"></span><strong class="calibre2">4. Duplicate the Dot 1 Sprite</strong></h4>
+<p class="noindent">Right-click the <span class="literal1">Dot 1</span> sprite in the Sprite List and select <strong class="calibre5">duplicate</strong>. Do this twice so that you make two duplicates: <span class="literal1">Dot 2</span> and <span class="literal1">Dot 3</span>. (Scratch automatically names the sprites with increasing numbers.)</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-494"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Check that all three dots are moving and bouncing around the Stage. When you duplicated the sprites, you also duplicated the sprite code. Click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-56" class="calibre4"></a><p class="h3a"><img src="images/00178.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">DRAW THE RAINBOW LINES</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Now that we’ve created all the bouncing dots, we can create a fourth dot sprite to draw the rainbow lines. We’ll write a program that makes this drawing dot move quickly between the three bouncing dot sprites, drawing a line as it moves. This process will repeat three times, and then after 10 seconds the screen will clear.</p>
+<h4 class="h3" id="calibre_link-57"><strong class="calibre2">5. Add the Code for the Drawing Dot Sprite</strong></h4>
+<p class="noindent">Right-click one of the bouncing dot sprites and select <strong class="calibre5">duplicate</strong>. Because this is a duplicate of the bouncing dots, it has some code we need to delete. In its Scripts Area, delete all the code blocks by right-clicking the <span class="literal1"><strong class="calibre5">when green flag clicked</strong></span> block and then selecting <strong class="calibre5">delete</strong>. You can also delete blocks by dragging them to the Blocks Area in the middle of the editor, where they’ll disappear.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-345"></span>Click the <span class="circk">i</span> button and rename this sprite <span class="literal1">Drawing Dot</span>.</p>
+<div class="image"><img src="images/00180.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Add the following two scripts to the <span class="literal1">Drawing Dot</span> sprite. You can find these blocks in the <em class="calibre6">Events</em> (brown), <em class="calibre6">Pen</em> (turquoise), <em class="calibre6">Control</em> (yellow), and <em class="calibre6">Motion</em> (dark blue) categories.</p>
+<div class="image"><img src="images/00162.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">In script <span class="ent1">➊</span>, make sure you use the <span class="literal1"><strong class="calibre5">go to</strong></span> block, not the <span class="literal1"><strong class="calibre5">go to x y</strong></span> block. Also, be sure to change the <span class="literal1"><strong class="calibre5">go to</strong></span> blocks so they aren’t going to the mousepointer. To do so, click the black triangle on the block and select a sprite from the menu.</p>
+<div class="image"><img src="images/00182.jpeg" alt="image" class="calibre3" /></div>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-495"></span><img src="images/00183.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Before you run the code, let’s talk through how it works. When you click the green flag in script <span class="ent1">➊</span>, the <span class="literal1">Drawing Dot</span> sprite runs the <span class="literal1"><strong class="calibre5">clear</strong></span> block to clear away any pen drawing already on the Stage. Then the script runs the <span class="literal1"><strong class="calibre5">pen down</strong></span> block: as the sprite moves around, it draws a line on the Stage.</p>
+<p class="indent">To better understand what the <span class="literal1"><strong class="calibre5">pen down</strong></span> block does, imagine holding down a marker on a piece of paper while you walk around it: a line would be drawn following you! The drawing dot goes to <span class="literal1">Dot 1</span>, puts its pen down, goes to <span class="literal1">Dot 2</span>, and then goes to <span class="literal1">Dot 3</span>. Next, the <span class="literal1"><strong class="calibre5">change pen color by 10</strong></span> block changes the color of the pen slightly. (You can increase this number to make the colors change faster.) At the same time, <span class="literal1">Dot 1</span>, <span class="literal1">Dot 2</span>, and <span class="literal1">Dot 3</span> sprites continue to move around on their own. So the <em class="calibre6">V</em> line that the <span class="literal1">Drawing Dot</span> sprite draws also moves around.</p>
+<p class="indent">Script <span class="ent1">➋</span> is a lot simpler to understand. This code waits 10 seconds and then clears the screen of any marks made by the <em class="calibre6">Pen</em> blocks. Now the Stage won’t become overcrowded with rainbow lines.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-496"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. You should see a flying rainbow <em class="calibre6">V</em> move across the Stage. Then, every 10 seconds, the rainbows clear. Click the red stop sign and save your program!</p>
+</div>
+<h3 class="h2" id="calibre_link-58"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-444" class="calibre1"></span><strong class="calibre2">THE COMPLETE PROGRAM</strong></h3>
+<p class="noindent">The final code for the entire program is shown here. Notice that the code for <span class="literal1">Dot 1</span>, <span class="literal1">Dot 2</span>, and <span class="literal1">Dot 3</span> sprites is identical. If your program isn’t working correctly, check your code against this code:</p>
+<div class="image"><img src="images/00186.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-59"><strong class="calibre2">TURBO MODE</strong></h3>
+<p class="noindent">If you hold <small class="calibre15">SHIFT</small> while clicking the green flag, you can start the program in Turbo Mode. The computer is usually able to run code blocks quickly, but a program that draws sprites to the screen slows down the computer. In Turbo Mode, instead of drawing the screen after each code block, Scratch only <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-445"></span>draws to the screen after several code blocks. Human eyes won’t notice the skipped drawings, and the program will look like it’s running faster.</p>
+<div class="image"><img src="images/00185.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><small class="calibre15">SHIFT</small>-click the green flag to run the <em class="calibre6">Rainbow Lines</em> program in Turbo Mode. Almost instantly, the screen fills up! To end Turbo Mode, <small class="calibre15">SHIFT</small>-click the green flag again.</p>
+<div class="image"><img src="images/00202.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-60"><strong class="calibre2">VERSION 2.0: RAINBOW TRIANGLES</strong></h3>
+<p class="noindent">Your <em class="calibre6">Rainbow Lines</em> program is complete as it is, but you can take this program to the next level. You can always think of new ideas to add to your programs after you have the basics working.</p>
+<p class="indent">For version 2.0 of the program, let’s connect <span class="literal1">Dot 3</span> and <span class="literal1">Dot 1</span> so that, instead of a flying rainbow <em class="calibre6">V</em>, the program has a flying rainbow triangle. Modify the code for the <span class="literal1">Drawing Dot</span> sprite to match the following, but leave the rest of the code the same.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-446"></span><img src="images/00188.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The new <span class="literal1"><strong class="calibre5">go to Dot 1</strong></span> block draws a line from <span class="literal1">Dot 3</span> to <span class="literal1">Dot 1</span>, forming a triangle.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-497"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure you see a flying rainbow triangle moving around the Stage. Then click the red stop sign and save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-61"><strong class="calibre2">VERSION 3.0: TWO RAINBOW LINES</strong></h3>
+<p class="noindent">For version 3.0, let’s create two separate flying lines instead of a single line.</p>
+<p class="indent">Right-click the <span class="literal1">Dot 3</span> sprite and select <strong class="calibre5">duplicate</strong> to make a <span class="literal1">Dot 4</span> sprite. Then modify the <span class="literal1">Drawing Dot</span> sprite’s code to match the following.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-319"></span><img src="images/00189.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The new code puts the pen down while moving between <span class="literal1">Dot 1</span> and <span class="literal1">Dot 2</span>. Then it lifts the pen up, goes to <span class="literal1">Dot 3</span>, and puts the pen down again to draw a line from <span class="literal1">Dot 3</span> to <span class="literal1">Dot 4</span>.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-498"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure you see two flying rainbow lines. Then click the red stop sign and save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-62"><strong class="calibre2">VERSION 4.0: YOU DECIDE!</strong></h3>
+<p class="noindent">You can start making your own changes to create new demoscene programs. In this chapter’s program you drew lines, but if you learn the mathematics behind Bézier curves, you can make beautiful curves. Another mathematical concept that produces beautiful images is fractals, as shown in the <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-380"></span>following figure. Go to the Scratch website and search for “bézier,” “fractals,” or “demoscene” to get ideas for your own programs. You can also look at the code blocks for every Scratch program by clicking the <strong class="calibre5">See inside</strong> button on the program’s web page. Check out some example projects at <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em>.</p>
+<div class="image"><img src="images/00229.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-63"><strong class="calibre2">SUMMARY</strong></h3>
+<p class="noindent">In this chapter, you built a project that</p>
+<p class="arrowt"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has custom sprites that you created (even if they are just dots)</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Uses the <span class="literal1"><strong class="calibre5">pick random</strong></span> block to point a sprite in a random direction</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Makes sprites move and bounce off the edges of the Stage</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Duplicates sprites and their code</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Uses the <em class="calibre6">Pen</em> blocks to draw rainbow lines</p>
+<p class="indentt">This project is a demo that users can watch but can’t control. In <a href="#calibre_link-7" class="calibre4">Chapter 3</a>, you’ll make a maze game that lets players interact with the program by using the keyboard instead of just watching. This will be the first real game project in this book!</p>
+<div class="sidebarb">
+<p class="sidebartb" id="calibre_link-64"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-499" class="calibre1"></span><strong class="calibre2">REVIEW QUESTIONS</strong></p>
+<p class="noindent">Try to answer the following practice questions to test what you’ve learned. You probably won’t know all the answers off the top of your head, but you can explore the Scratch editor to figure out the answers. (The answers are also online at <em class="calibre6"><a href="http://www.nostarch.com/scratchplayground/" class="calibre4">http://www.nostarch.com/scratchplayground/</a></em>.)</p>
+<ol class="calibre16">
+<li value="1" class="calibre17"><p class="noindent">What happens when a sprite moves after it has run the <span class="literal1">pen down</span> block?</p></li>
+<li value="2" class="calibre17"><p class="noindent">Some code moves a sprite, but no line is drawn behind it. What might cause this bug?</p></li>
+<li value="3" class="calibre17"><p class="noindent">Which block causes the lines in the <em class="calibre6">Rainbow Lines</em> program to look like a rainbow?</p></li>
+<li value="4" class="calibre17"><p class="noindent">Which code block do you use to make the rainbow lines thicker?</p></li>
+<li value="5" class="calibre17"><p class="noindent">How do you turn on Turbo Mode? How do you turn it off?</p></li>
+<li value="6" class="calibre17"><p class="noindent">How do you duplicate a sprite and its code blocks?</p></li>
+<li value="7" class="calibre17"><p class="noindent">Where does a sprite point when its direction is 90 degrees?</p></li>
+<li value="8" class="calibre17"><p class="noindent">What is the degree direction for pointing up?</p></li>
+<li value="9" class="calibre17"><p class="noindent">You want a sprite to point down and move in that direction. In which color of blocks category would you find code blocks to do this?</p></li>
+<li value="10" class="calibre17"><p class="noindent">How do you select a new backdrop from Scratch’s Backdrop Library?</p></li>
+<li value="11" class="calibre17"><p class="noindent">You see a sprite named <span class="literal1">Sprite1</span> in the Sprite List. How do you rename this sprite?<span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-500"></span></p></li>
+</ol>
+</div>
+</div>
+
+</body></html>

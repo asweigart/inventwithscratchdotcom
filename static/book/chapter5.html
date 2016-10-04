@@ -1,0 +1,282 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><link href="style.css" rel="stylesheet" type="text/css" /><title>Scratch Programming Playground</title></head><body>
+
+
+
+
+
+<div id="calibre_link-3" class="calibre">
+<h2 class="h1" id="calibre_link-2"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-441" class="calibre1"></span><strong class="calibre2">5</strong><br class="calibre9" /><strong class="calibre2">A POLISHED BRICK BREAKER GAME</strong></h2>
+<p class="noindent">Have you ever seen a brick breaker game? The player controls a paddle at the bottom of the screen to bounce a ball that breaks blocks at the top of the screen. The player loses when the ball gets past the paddle. This game is simple enough to program, but it can look a bit boring. In this chapter, you’ll learn a few tricks to make the game more colorful and interesting by adding animations and effects.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-333"></span>You’ll use an iterative process: first, you’ll make the basic game, and then you’ll make small improvements to it. The result will be a more professional-looking game that other Scratchers on the Scratch website will think looks awesome.</p>
+<p class="indent">The following figure shows what the <em class="calibre6">Brick Breaker</em> game looks like before and after polishing it.</p>
+<div class="image"><img src="images/00209.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Before you start coding, take a look at the final game at <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em>.</p>
+<div class="image"><img src="images/00254.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-125"><strong class="calibre2">SKETCH OUT THE DESIGN</strong></h3>
+<p class="noindent">Let’s start by drawing what the game should look like. The sketch for <em class="calibre6">Brick Breaker</em> might look something like the following figure.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-334"></span><img src="images/00042.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">If you want to save time, you can start from the skeleton project file, named <em class="calibre6">brickbreaker-skeleton.sb2</em>, in the resources ZIP file. Go to <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em> and download the ZIP file to your computer by right-clicking the link and selecting <strong class="calibre5">Save link as</strong> or <strong class="calibre5">Save target as</strong>. Extract all the files from the ZIP file. The skeleton project file has all the sprites already loaded, so you’ll only need to drag the code blocks into each sprite.</p>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-126" class="calibre4"></a><p class="h3a"><img src="images/00033.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE A PADDLE THAT MOVES LEFT AND RIGHT</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">The player will control the paddle by moving the mouse. The ball bounces off the paddle toward the bricks, but the player loses if the ball gets past the paddle.</p>
+<h4 class="h3" id="calibre_link-127"><strong class="calibre2">1. Create the Paddle Sprite</strong></h4>
+<p class="noindent">We don’t need the orange cat in this game, so right-click the <span class="literal1">Sprite1</span> cat in the Sprite List and select <strong class="calibre5">delete</strong> from the menu. <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-387"></span>Then paint a sprite by clicking the <strong class="calibre5">Paint new sprite</strong> button next to New sprite. When the Paint Editor appears, draw a wide rectangle using the Rectangle tool.</p>
+<div class="image"><img src="images/00334.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">I’ve made my paddle green, but you can choose another color. A short paddle makes the ball more difficult to hit. Later, you can experiment with different paddle sizes to make the game easier or harder. Click the <span class="circk">i</span> button to open the Info Area, and rename this sprite <span class="literal1">Paddle</span>.</p>
+<p class="indent">Next, add this code to program the <span class="literal1">Paddle</span> sprite to make it follow the mouse along the bottom of the Stage:</p>
+<div class="image"><img src="images/00156.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1">Paddle</span> sprite constantly moves <span class="literal1">10</span> steps directly toward the mouse, but its y position stays set to <span class="literal1">-140</span>.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-283"></span><img src="images/00037.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1">Paddle</span> sprite will move only left and right because its y position is always set to the bottom of the Stage (<span class="literal1">-140</span>).</p>
+<div class="sidebary">
+<p class="sidebarty" id="calibre_link-128"><strong class="calibre2">EXPLORE: ROTATION STYLES</strong></p>
+<p class="noindent">The rotation style sets how the sprite looks when it changes direction. The three rotation styles are <span class="literal1">all around</span>, <span class="literal1">left-right</span>, and <span class="literal1">don’t rotate</span>.</p>
+<div class="image"><img src="images/00158.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">When a sprite is set to <span class="literal1">all around</span>, it will face exactly where its direction points. But this won’t work for a side-view game (like the <em class="calibre6">Basketball</em> game in <a href="#calibre_link-4" class="calibre4">Chapter 4</a>), because the sprite will be upside down when its direction faces left. Instead, for these games you’ll use the <span class="literal1">left-right</span> rotation style. The sprite will face only 90 degrees (right) or -90 degrees (left), whichever is closest to the sprite’s direction. If you don’t want the sprite to rotate at all, even as its direction changes, set the rotation style to <span class="literal1">don’t rotate</span>.</p>
+</div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-331"></span>Because we’re changing the <span class="literal1">Paddle</span> sprite’s direction, we also need to set the sprite’s rotation style with the <span class="literal1"><strong class="calibre5">set rotation style</strong></span> block. The <span class="literal1">Paddle</span> sprite is programmed to face and move toward the mouse, but we want the sprite to always look flat and horizontal, so the rotation style is set to <span class="literal1">don’t rotate</span>.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-532"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Move the mouse around and see if the <span class="literal1">Paddle</span> sprite follows it. Make sure the <span class="literal1">Paddle</span> stays at the bottom of the Stage. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-129" class="calibre4"></a><p class="h3a"><img src="images/00161.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE A BALL THAT BOUNCES OFF THE WALLS</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">The Scratch Sprite Library has several sprites you could use for the ball, but let’s use the <span class="literal1">Tennis Ball</span> sprite for this game.</p>
+<h4 class="h3" id="calibre_link-130"><strong class="calibre2">2. Create the Tennis Ball Sprite</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Choose sprite from library</strong> button next to New sprite, and select the <span class="literal1">Tennis Ball</span> sprite from the Sprite Library window. Add the following code:</p>
+<div class="image"><img src="images/00097.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-330"></span>When the game starts, the <span class="literal1">Tennis Ball</span> sprite starts at position (0, 0) in the center of the Stage; then the <span class="literal1">Tennis Ball</span> sprite points down and to the right toward the <span class="literal1">Paddle</span> sprite. Next, in the <span class="literal1"><strong class="calibre5">forever</strong></span> loop, the <span class="literal1">Tennis Ball</span> sprite starts to move. When the <span class="literal1">Tennis Ball</span> sprite touches the edge of the Stage, it will bounce in a new direction.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-533"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the <span class="literal1">Tennis Ball</span> sprite moves around and bounces off the edges. The tennis ball will not bounce off the paddle, because you haven’t added that code yet. Click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-131" class="calibre4"></a><p class="h3a"><img src="images/00178.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE BALL BOUNCE OFF THE PADDLE</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">The <span class="literal1">Tennis Ball</span> sprite now bounces off the walls but not off the <span class="literal1">Paddle</span> sprite. Let’s add that code now.</p>
+<div class="image"><img src="images/00142.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-132"><strong class="calibre2">3. Add the Bounce Code to the Tennis Ball Sprite</strong></h4>
+<p class="noindent">Add the following code to the <span class="literal1">Tennis Ball</span> sprite so it will bounce off the <span class="literal1">Paddle</span> sprite. To do so, you’ll need to create a new broadcast message, <span class="literal1">bounce</span>.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-279"></span><img src="images/00051.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">You’ll use the broadcast message in script <span class="ent1">➊</span> to control what happens when the ball touches the paddle in script <span class="ent1">➋</span>.</p>
+<p class="indent">The <span class="literal1"><strong class="calibre5">point in direction 180 - direction</strong></span> code in script <span class="ent1">➋</span> might seem a bit mysterious, but this simple equation calculates the direction in which the ball will bounce based on the ball’s current direction. If the ball is pointed up and right (45 degrees), then when it bounces off the bottom of a brick, its new direction will be down and right (135 degrees, because 180 &ndash; 45 = 135). If the ball is pointed up and left (&ndash;45 degrees), then when it bounces off the bottom of a brick, its new direction will be down and left (225 degrees, because 180 &ndash; (&ndash;45) = 225).</p>
+<div class="image"><img src="images/00223.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">You’ll use this broadcast message again later in the program when you add code to make the ball bounce off the bricks.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-534"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-349" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the tennis ball bounces off the paddle. Then click the red stop sign and save your program.</p>
+</div>
+<div class="sidebary">
+<p class="sidebarty" id="calibre_link-133"><strong class="calibre2">EXPLORE: CLONING</strong></p>
+<p class="noindent">The <span class="literal1"><strong class="calibre5">create clone of myself</strong></span> block makes a duplicate of the sprite, which is called a <em class="calibre6">clone</em>. This feature is handy whenever you want to create many copies of an object in your game, such as a lot of bad guys that look the same, a bunch of coins for the player to collect, or in the <em class="calibre6">Brick Breaker</em> game, the bricks you need to hit.</p>
+<p class="indent">Let’s look at how clones work. Open Scratch in a new tab, and create a new program. Add this code to the <span class="literal1">Cat</span> sprite:</p>
+<div class="image"><img src="images/00263.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Script <span class="ent1">➊</span> makes the <span class="literal1">Cat</span> sprite bounce around the Stage, just like the <span class="literal1">Tennis Ball</span> sprite does in the <em class="calibre6">Brick Breaker</em> game. But in script <span class="ent1">➋</span>, we create a clone again and again, every 2 seconds. Script <span class="ent1">➌</span> uses the <span class="literal1"><strong class="calibre5">when I start as a clone</strong></span> block to control the behavior of the cloned sprites. What do you think will happen when you run this code? Run the code now to find out if you were right.</p>
+<p class="indent">The original <span class="literal1">Cat</span> sprite bounces around the Stage. Every 2 seconds a duplicate of the sprite is created: these are the clones. Each clone will then start to turn because of script <span class="ent1">➌</span>.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-332"></span><a id="calibre_link-134" class="calibre4"></a><p class="h3a"><img src="images/00110.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE CLONES OF THE BRICK</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Now the game needs lots of bricks, so you’ll create one <span class="literal1">Brick</span> sprite and then clone it using Scratch’s <span class="literal1"><strong class="calibre5">create clone</strong></span> block.</p>
+<h4 class="h3" id="calibre_link-135"><strong class="calibre2">4. Add the Brick Sprite</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Choose sprite from library</strong> button next to New sprite, and select the <span class="literal1">Button 2</span> sprite from the Sprite Library window. Click the <span class="circk">i</span> button to open the Info Area, and rename this sprite <span class="literal1">Brick</span>.</p>
+<p class="indent">You’ll have to create a new variable by selecting the orange <em class="calibre6">Data</em> category and clicking the <strong class="calibre5">Make a Variable</strong> button. Name this variable <span class="literal1">Score</span>, and set it to <strong class="calibre5">For all sprites</strong>. Then add the following code to the <span class="literal1">Brick</span> sprite:</p>
+<div class="image"><img src="images/00301.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">At the beginning of the game, the <span class="literal1">Score</span> variable is set to <span class="literal1">0</span> so that any points from a previous game are reset. The original sprite hides itself with the <span class="literal1"><strong class="calibre5">hide</strong></span> block, shrinks in size by 50 percent, and moves to the top-left corner of the Stage at (&ndash;200, 140). The clones, which we’ll create next, show themselves with the <span class="literal1"><strong class="calibre5">show</strong></span> block.</p>
+<h4 class="h3" id="calibre_link-136"><strong class="calibre2">5. Clone the Brick Sprite</strong></h4>
+<p class="noindent">For the <em class="calibre6">Brick Breaker</em> game, we want many rows of bricks. To make the rows of bricks, we’ll move the original sprite across the top of the screen, creating a trail of clones. Add the following code to the <span class="literal1">Brick</span> sprite. (Be sure not to confuse the <span class="literal1"><strong class="calibre5">set x to</strong></span> and <span class="literal1"><strong class="calibre5">change x by</strong></span> blocks!)</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-535"></span><img src="images/00167.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">This code will create clones of the <span class="literal1">Brick</span> sprite for all the bricks in the game, as shown here:</p>
+<div class="image"><img src="images/00087.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-329"></span>The original sprite moves to the top-left corner of the Stage at (&ndash;200, 140) <span class="ent1">➊</span>. Then the <span class="literal1"><strong class="calibre5">repeat 7</strong></span> block repeatedly moves 65 steps to the right while making clones of itself <span class="ent1">➋</span> to create a row of seven <span class="literal1">Brick</span> clones <span class="ent1">➌</span>. The <span class="literal1"><strong class="calibre5">repeat 4</strong></span> block repeats the row-creating code to create four rows of <span class="literal1">Brick</span> clones <span class="ent1">➍</span>. Seven <span class="literal1">Brick</span> clones multiplied by four rows results in 28 <span class="literal1">Brick</span> clones. The 29th <span class="literal1">Brick</span> in the previous figure is the original sprite, not a clone, and we’ll hide it next.</p>
+<p class="indent">After all the clones have been created, the original sprite hides itself. Now all the bricks on the Stage are clones, so you don’t need to duplicate the code under the <span class="literal1"><strong class="calibre5">when I start as a clone</strong></span> block for the original sprite.</p>
+<p class="indent">Imagine if you duplicated the sprites instead of cloning them. Then, if you wanted to change the code, you’d have to change all 28 <span class="literal1">Brick</span> sprites. Cloning saves you a lot of time!</p>
+<div class="image"><img src="images/00041.jpeg" alt="image" class="calibre3" /></div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-137" class="calibre4"></a><p class="h3a"><img src="images/00172.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE BALL BOUNCE OFF BRICKS</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">The <span class="literal1">Tennis Ball</span> sprite bounces off the Stage edges and the <span class="literal1">Paddle</span> sprite. Now let’s make it bounce off the <span class="literal1">Brick</span> clones.</p>
+<h4 class="h3" id="calibre_link-138"><strong class="calibre2">6. Add the Bounce Code to the Brick Sprite</strong></h4>
+<p class="noindent">Update the code for the <span class="literal1">Brick</span> sprite to match this:</p>
+<div class="image"><img src="images/00173.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-275"></span>When the <span class="literal1">Tennis Ball</span> sprite hits a <span class="literal1">Brick</span> sprite, the <span class="literal1">Brick</span> sprite broadcasts the <span class="literal1">bounce</span> message, which brings the <span class="literal1">Tennis Ball</span> code into play. The ball’s direction changes, just like it does when it hits the paddle. The program adds <span class="literal1">1</span> to the player’s <span class="literal1">Score</span>, and then the clone deletes itself.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-536"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the top part of the Stage fills with <span class="literal1">Brick</span> clones and the clones disappear when the <span class="literal1">Tennis Ball</span> sprite bounces off them. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-139" class="calibre4"></a><p class="h3a"><img src="images/00174.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE “YOU WIN” AND “GAME OVER” MESSAGES</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">You need two more sprites for this game, but they won’t appear until the game ends. I created mine with the Paint Editor’s Text tool. If the player breaks all the <span class="literal1">Brick</span> clones, the program displays the <span class="literal1">You Win</span> sprite. If the tennis ball gets past the paddle, the program displays the <span class="literal1">Game Over</span> sprite.</p>
+<h4 class="h3" id="calibre_link-140"><strong class="calibre2">7. Modify the Tennis Ball Sprite’s Code</strong></h4>
+<p class="noindent">When the <span class="literal1">Tennis Ball</span> sprite gets past the <span class="literal1">Paddle</span> sprite&mdash;that is, when the <span class="literal1">Tennis Ball</span> sprite’s <span class="literal1"><strong class="calibre5">y position</strong></span> is less than <span class="literal1">-140</span>&mdash;the game is over. Once the game ends, the <span class="literal1">Tennis Ball</span> sprite should broadcast a <span class="literal1">game over</span> message. Add the following code to the <span class="literal1">Tennis Ball</span> sprite. This will require you to create the <span class="literal1">game over</span> broadcast message.</p>
+<div class="image"><img src="images/00176.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-364"></span>The <span class="literal1">game over</span> broadcast will tell the <span class="literal1">Game Over</span> sprite to appear. Let’s create the sprite next.</p>
+<h4 class="h3" id="calibre_link-141"><strong class="calibre2">8. Create the Game Over Sprite</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Paint new sprite</strong> button next to New sprite. When the Paint Editor appears, use the Text tool to write <em class="calibre6">GAME OVER</em> in red.</p>
+<div class="image"><img src="images/00140.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Click the <span class="circk">i</span> button to open the Info Area, and rename this sprite <span class="literal1">Game Over</span>. Then add this code to the <span class="literal1">Game Over</span> sprite:</p>
+<div class="image"><img src="images/00147.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The sprite stays hidden until it receives the <span class="literal1">game over</span> broadcast. The <span class="literal1"><strong class="calibre5">stop all</strong></span> block then stops all the sprites from moving as well.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-537"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-336" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Let the tennis ball fall past the paddle, and make sure the <span class="literal1">Game Over</span> sprite appears and the program stops. Save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-142"><strong class="calibre2">9. Create the You Win Sprite</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Paint new sprite</strong> button next to New sprite. In the Paint Editor, use the Text tool to write <em class="calibre6">You win!</em> in green.</p>
+<div class="image"><img src="images/00312.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Click the <span class="circk">i</span> button to open the Info Area, and rename this sprite <span class="literal1">You Win</span>. Add this code to the <span class="literal1">You Win</span> sprite:</p>
+<div class="image"><img src="images/00181.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-328"></span>As with the <span class="literal1">Game Over</span> sprite, the <span class="literal1">You Win</span> sprite is hidden until a condition is met. In this game, the player needs to break all 28 bricks to win, so the condition is <span class="literal1"><strong class="calibre5">Score = 28</strong></span>. After the <span class="literal1">You Win</span> sprite displays, the program stops all the other sprites from moving with <span class="literal1"><strong class="calibre5">stop all</strong></span>.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-538"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the <span class="literal1">You Win</span> sprite appears after breaking all the bricks and the program stops. To make winning the game faster, temporarily change the <span class="literal1"><strong class="calibre5">wait until Score = 28</strong></span> block to <span class="literal1"><strong class="calibre5">wait until Score = 1</strong></span>. Then you only need to break one brick to win. Save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-143"><strong class="calibre2">THE COMPLETE PROGRAM</strong></h3>
+<p class="noindent">The final code for the entire program is shown here. If your program isn’t working right, check your code against this code.</p>
+<div class="image"><img src="images/00030.jpeg" alt="image" class="calibre3" /></div>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-335"></span><img src="images/00046.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-144"><strong class="calibre2">VERSION 2.0: POLISHING TIME</strong></h3>
+<p class="noindent">The game works well as it is. But now you’ll add some polish to the game. Many of the ideas for the polished features in the <em class="calibre6">Brick Breaker</em> game came from a Nordic Game Indie Night <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-308"></span>presentation called “Juice It or Lose It!” by Martin Jonasson and Petri Purho. The word <em class="calibre6">juice</em> in game design means <em class="calibre6">polish</em>, or modifying a game in small ways to make it feel more alive and responsive. These tricks can turn a barebones game into an exciting, colorful one. A juicy game looks more professional than a plain game. You can watch their presentation where they add juice to their brick breaker game at <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em>.</p>
+<p class="indent">You can add many tricks to the <em class="calibre6">Brick Breaker</em> game to make it look polished. Even better, you can use these tricks in any of your games. Before you start coding, take a look at the complete program at <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em>.</p>
+<div class="image"><img src="images/00184.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-145"><strong class="calibre2">Draw a Cool Backdrop</strong></h4>
+<p class="noindent">Adding an interesting background is a simple way to make the game look cooler. Click the Stage in the Sprite List, and then click the <strong class="calibre5">Backdrops</strong> tab above the Blocks Area. In the Paint Editor, select two different purple colors. First, click a light purple color; then click the Color switcher and click a dark purple color. Using the Fill tool’s various gradient settings, randomly <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-309"></span>click around the Paint Editor to create an unusual but interesting background like the one shown in the following figure.</p>
+<div class="image"><img src="images/00120.jpeg" alt="image" class="calibre3" /></div>
+<div class="image"><img src="images/00187.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-146"><strong class="calibre2">Add Music</strong></h4>
+<p class="noindent">Sounds set the mood and make a game feel more alive. With the Stage selected in the Sprite List, click the <strong class="calibre5">Sounds</strong> tab at the top of the Blocks Area. Click the <strong class="calibre5">Choose sound from library</strong> button (it looks like a speaker) under New sound. When the Sound Library window appears, select the <span class="literal1">dance celebrate</span> sound and click <strong class="calibre5">OK</strong>.</p>
+<p class="indent">Then click the <strong class="calibre5">Scripts</strong> tab and add this code to the Stage’s Scripts Area to give the game some background music:</p>
+<div class="image"><img src="images/00212.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-147"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-276" class="calibre1"></span><strong class="calibre2">Make the Paddle Flash When Hit</strong></h4>
+<p class="noindent">In this step, you’ll make the paddle flash different colors when it is hit by the ball. Add the following code to the <span class="literal1">Paddle</span> sprite.</p>
+<div class="image"><img src="images/00246.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1">bounce</span> message is broadcast when the <span class="literal1">Tennis Ball</span> sprite bounces off a <span class="literal1">Brick</span> clone and when it bounces off the <span class="literal1">Paddle</span> sprite. The <span class="literal1"><strong class="calibre5">if distance to Tennis Ball &lt; 60</strong></span> block makes the color changes happen when the <span class="literal1">Tennis Ball</span> sprite bounces off the <span class="literal1">Paddle</span> sprite (which means the ball will be less than 60 steps away).</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-539"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the paddle flashes different colors when the ball bounces off it. Then click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-148"><strong class="calibre2">Add an Animated Entrance and Exit to the Bricks</strong></h4>
+<p class="noindent">The <span class="literal1">Brick</span> clones’ entrance to the game is rather boring. They just appear as soon as they’re cloned. To animate their entrance, modify the <span class="literal1">Brick</span> sprite’s code to match this code.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-405"></span><img src="images/00190.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Setting the <span class="literal1"><strong class="calibre5">ghost effect</strong></span> to <span class="literal1">100</span> and then slowly decreasing it makes the <span class="literal1">Brick</span> clones fade into view rather than instantly appear. The code also sets the <span class="literal1">Brick</span> clones 10 steps below their final positions and slowly raises them by changing their y position in the <span class="literal1"><strong class="calibre5">repeat</strong></span> block. This makes the <span class="literal1">Brick</span> clones look like they’re sliding into place.</p>
+<div class="image"><img src="images/00240.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-540"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-406" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the <span class="literal1">Brick</span> clones fade into view rather than just instantly appearing. Then click the red stop sign and save your program.</p>
+</div>
+<p class="indent">Now let’s animate the exit of the <span class="literal1">Brick</span> clones. Modify the <span class="literal1">Brick</span> sprite’s code so the <span class="literal1">Brick</span> clones have an animated exit instead of just instantly disappearing.</p>
+<div class="image"><img src="images/00049.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-344"></span>Now the <span class="literal1">Brick</span> clones will disappear in an exciting way! The <span class="literal1"><strong class="calibre5">change effect by</strong></span> blocks inside the <span class="literal1"><strong class="calibre5">repeat</strong></span> loop will make the <span class="literal1">Brick</span> clones flash different colors and increase their ghost effect so they become more and more transparent. Meanwhile, the <span class="literal1"><strong class="calibre5">change size by -4</strong></span> block causes the <span class="literal1">Brick</span> clones to shrink, the <span class="literal1"><strong class="calibre5">change y by 4</strong></span> block lifts them up, and the <span class="literal1"><strong class="calibre5">turn clockwise 15 degrees</strong></span> block rotates them. This animated exit is short but fun to watch.</p>
+<div class="image"><img src="images/00050.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-541"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Hit the bricks with the tennis ball, and make sure they spin and move up as they fade out of sight rather than just instantly disappearing. Then click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-149"><strong class="calibre2">Add a Sound Effect to the Brick Exit</strong></h4>
+<p class="noindent">Let’s also make the <span class="literal1">Brick</span> clones play different sound effects as they disappear. Select the <span class="literal1">Brick</span> sprite in the Sprite List, and then click the <strong class="calibre5">Sounds</strong> tab above the Blocks Area. Click the <strong class="calibre5">Choose sound from library</strong> button under New sound, and select <span class="literal1">laser1</span> from the Sound Library. Repeat this step to add the <span class="literal1">laser2</span> sound as well.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-352"></span>Modify the <span class="literal1">Brick</span> sprite’s code to match this code:</p>
+<div class="image"><img src="images/00052.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">When these sounds have been loaded and the following code has been added, the <span class="literal1">Brick</span> clones will play a random sound <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-542"></span>effect as they disappear. The <span class="literal1"><strong class="calibre5">if then else</strong></span> block adds some variety to the program’s sound effects by randomly selecting which sound to play. Each time the <span class="literal1">Tennis Ball</span> sprite touches a <span class="literal1">Brick</span> clone, the program will choose either 1 or 2 at random and then play a different sound as a result.</p>
+<h4 class="h3" id="calibre_link-150"><strong class="calibre2">Add a Sound Effect to the Tennis Ball</strong></h4>
+<p class="noindent">Now you’ll add a sound effect for when the <span class="literal1">Tennis Ball</span> sprite hits the <span class="literal1">Paddle</span> sprite. The <span class="literal1">pop</span> sound is already loaded for each sprite; all you have to do is update the <span class="literal1">Tennis Ball</span> sprite’s code to match this:</p>
+<div class="image"><img src="images/00053.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-151"><strong class="calibre2">Add a Trail Behind the Tennis Ball</strong></h4>
+<p class="noindent">Adding a trail of clones behind the <span class="literal1">Tennis Ball</span> sprite as it moves around the Stage will give it a cool comet tail. You don’t want to use clones of the <span class="literal1">Tennis Ball</span> sprite, because they would respond to the <span class="literal1">bounce</span> broadcast whenever the original <span class="literal1">Tennis Ball</span> sprite bounces. Instead, click the <strong class="calibre5">Choose sprite from library</strong> button next to New sprite. Then select <strong class="calibre5">Tennis</strong> <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-457"></span><strong class="calibre5">Ball</strong> from the Sprite Library window to create another sprite called <span class="literal1">Tennis Ball2</span>. You’ll clone this second ball to create the trail. Unlike a <span class="literal1">Tennis Ball</span> clone, the <span class="literal1">Tennis Ball2</span> clones won’t have a <span class="literal1"><strong class="calibre5">when I receive bounce</strong></span> block. Add this code to the <span class="literal1">Tennis Ball2</span> sprite:</p>
+<div class="image"><img src="images/00054.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The only thing the clone is programmed to do is go to the current <span class="literal1">Tennis Ball</span> sprite’s location. The tennis ball keeps moving, but the clone stays in place, shrinking and becoming more transparent. At the end of this shrinking and fading animation, the clone is deleted.</p>
+<p class="indent">You’ll also need to update the <span class="literal1">Tennis Ball</span> sprite with this code:</p>
+<div class="image"><img src="images/00056.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">This script makes a new <span class="literal1">Tennis Ball2</span> clone after a 0.1 second wait, which creates the trail of tennis balls.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-543"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-286" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure a trail of shrinking <span class="literal1">Tennis Ball2</span> clones follows the original <span class="literal1">Tennis Ball</span> sprite. Then click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-152"><strong class="calibre2">Add an Animated Entrance for the Game Over Sprite</strong></h4>
+<p class="noindent">When the player loses, the <em class="calibre6">GAME OVER</em> text simply appears. It would be more exciting if the <em class="calibre6">GAME OVER</em> text had an animated entrance like the <span class="literal1">Brick</span> clones do. Modify the <span class="literal1">Game Over</span> sprite’s code to match the following code. First load the <span class="literal1">gong</span> sound effect by clicking the <strong class="calibre5">Choose sound from library</strong> button on the Sounds tab. You’ll create a new broadcast message named <span class="literal1">stop game</span> that will tell the <span class="literal1">Paddle</span> and <span class="literal1">Tennis Ball</span> sprites to stop moving.</p>
+<div class="image"><img src="images/00057.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">At the start of the game, the <span class="literal1">Game Over</span> sprite hides itself and sets its ghost effect to <span class="literal1">100</span>. When the <span class="literal1"><strong class="calibre5">show</strong></span> block runs at the end of the game, the <em class="calibre6">GAME OVER</em> text is still completely <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-544"></span>invisible. The animation code inside the <span class="literal1"><strong class="calibre5">repeat 10</strong></span> block makes the <em class="calibre6">GAME OVER</em> text slowly fade in by changing the ghost effect by <span class="literal1">-10</span>. The <span class="literal1"><strong class="calibre5">turn clockwise 15 degrees</strong></span> and <span class="literal1"><strong class="calibre5">change size by 12</strong></span> blocks rotate and enlarge the text. After a 4 second pause, the <span class="literal1"><strong class="calibre5">stop all</strong></span> block ends the program.</p>
+<p class="indent">To handle the <span class="literal1">stop game</span> broadcast message in the <span class="literal1">Tennis Ball</span> and <span class="literal1">Paddle</span> sprites, add the following code to <em class="calibre6">both</em> of these sprites:</p>
+<div class="image"><img src="images/00058.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The reason you need to use the <span class="literal1"><strong class="calibre5">stop other scripts in sprite</strong></span> block instead of <span class="literal1"><strong class="calibre5">stop all</strong></span> is that the program needs to continue running while the <em class="calibre6">GAME OVER</em> text is animated. The <span class="literal1"><strong class="calibre5">stop other scripts in sprite</strong></span> block will stop the <span class="literal1">Tennis Ball</span> and <span class="literal1">Paddle</span> sprites from moving but let the other sprites in the program continue running. When the <span class="literal1">Game Over</span> sprite has finished appearing on the screen, the <span class="literal1"><strong class="calibre5">stop all</strong></span> block will end the entire program.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-545"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Try to lose the game, and make sure the <em class="calibre6">GAME OVER</em> text has an animated entrance instead of just instantly appearing on the screen. Then click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-153"><strong class="calibre2">Add an Animated Entrance for the You Win Sprite</strong></h4>
+<p class="noindent">Let’s give the <span class="literal1">You Win</span> sprite a fancy, animated entrance too. Update the code in the <span class="literal1">You Win</span> sprite to match the following. You will have to load the sound effect named <span class="literal1">gong</span> by clicking the <strong class="calibre5">Choose sound from library</strong> button on the Sounds tab.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-337"></span><img src="images/00059.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">There are two sets of animations, one in the <span class="literal1"><strong class="calibre5">repeat 10</strong></span> block and another in the <span class="literal1"><strong class="calibre5">repeat 2</strong></span> block. The code in the <span class="literal1"><strong class="calibre5">repeat 10</strong></span> block makes the <span class="literal1">You Win</span> sprite fade into visibility, enlarges it, and moves it upward. After this short animation plays, the <span class="literal1"><strong class="calibre5">repeat 2</strong></span> block’s code increases the sprite’s brightness to <span class="literal1">50</span>, waits a tenth of a second, and then resets the brightness to <span class="literal1">0</span>. This makes the sprite look like it’s flashing. After a 4 second pause, the <span class="literal1"><strong class="calibre5">stop all</strong></span> block ends the program.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-546"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-547" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. When you win the game, make sure the <em class="calibre6">You win!</em> text has an animated entrance instead of just instantly appearing on the screen. To make winning the game faster, temporarily change the <span class="literal1"><strong class="calibre5">wait until Score = 28</strong></span> block to <span class="literal1"><strong class="calibre5">wait until Score = 1</strong></span>. Then you need to break only one brick to win. Save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-154"><strong class="calibre2">SUMMARY</strong></h3>
+<p class="noindent">In this chapter, you built a game that</p>
+<p class="arrowt"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Uses clones to quickly create many copies of the <span class="literal1">Brick</span> sprite and a trail of <span class="literal1">Tennis Ball2</span> sprites</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Controls the <span class="literal1">Paddle</span> sprite with the mouse instead of the keyboard arrow keys</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Shows the player <em class="calibre6">GAME OVER</em> and <em class="calibre6">You Win!</em> messages that you created using the Paint Editor’s Text tool</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has several animated entrances and exits for sprites</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Uses sound effects and background music to make the game feel more alive</p>
+<div class="image"><img src="images/00060.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Making the <em class="calibre6">Brick Breaker</em> game provided you with several techniques that you can add to future games. You can include animated entrances, color flashes, and sound effects in many programs to make them more exciting and fun. But it’s always best to make sure the plain, basic version of your game is working first and then start making it look cooler later.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-548"></span>This chapter also introduced cloning, which is a useful technique that we will use in the <em class="calibre6">Snaaaaaake</em> game in <a href="#calibre_link-5" class="calibre4">Chapter 6</a>. As you read on, the games you create will become more sophisticated, but don’t worry: you just have to keep following the instructions step-by-step!</p>
+<div class="sidebarb">
+<p class="sidebartb" id="calibre_link-155"><strong class="calibre2">REVIEW QUESTIONS</strong></p>
+<p class="noindent">Try to answer the following practice questions to test what you’ve learned. You probably won’t know all the answers off the top of your head, but you can explore the Scratch editor to figure out the answers. (The answers are also at the back of this book.)</p>
+<ol class="calibre16">
+<li value="1" class="calibre17"><p class="noindent">How does the program know when the <span class="literal1">Tennis Ball</span> sprite has gotten past the <span class="literal1">Paddle</span> sprite?</p></li>
+<li value="2" class="calibre17"><p class="noindent">Which block creates clones of a sprite?</p></li>
+<li value="3" class="calibre17"><p class="noindent">Which block has the code that clones run when they are created?</p></li>
+<li value="4" class="calibre17"><p class="noindent">What are the three rotation styles?</p></li>
+<li value="5" class="calibre17"><p class="noindent">Why do the <span class="literal1">You Win</span> and <span class="literal1">Game Over</span> sprites hide themselves after you click the green flag?</p></li>
+<li value="6" class="calibre17"><p class="noindent">What does the <span class="literal1"><strong class="calibre5">wait until</strong></span> block do?<span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-549"></span></p></li>
+</ol>
+</div>
+</div>
+
+</body></html>

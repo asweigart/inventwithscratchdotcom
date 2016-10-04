@@ -1,0 +1,282 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><link href="style.css" rel="stylesheet" type="text/css" /><title>Scratch Programming Playground</title></head><body>
+
+
+
+
+<div id="calibre_link-264" class="calibre">
+<h2 class="h1" id="calibre_link-7"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-442" class="calibre1"></span><strong class="calibre2">3</strong><br class="calibre9" /><strong class="calibre2">MAZE RUNNER</strong></h2>
+<p class="noindent">You’ve probably played a maze game before, but have you ever tried making one? Mazes can be tricky to complete, but they’re easy to program. In this chapter, you’ll create a game that lets the player guide a cat through a maze to reach its goal&mdash;a delicious apple! You’ll learn how to move the cat with the keyboard and how to block its progress with walls.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-425"></span>Before you start coding, take a look at the final program. Go to <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em> and play the game.</p>
+<div class="image"><img src="images/00191.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-66"><strong class="calibre2">SKETCH OUT THE DESIGN</strong></h3>
+<p class="noindent">First, draw what you want the game to look like on paper. With some planning, you can make your maze game a-mazeing. (I never apologize for my puns.) My sketch for the maze game looks like the following figure.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-429"></span><img src="images/00093.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">If you want to save time, you can start from the skeleton project file, named <em class="calibre6">maze-skeleton.sb2</em>, in the resources ZIP file. Go to <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em> and download the ZIP file to your computer by right-clicking the link and selecting <strong class="calibre5">Save link as</strong> or <strong class="calibre5">Save target as</strong>. Extract all the files from the ZIP file. The skeleton project file has all the sprites already loaded, so you’ll only need to drag the code blocks into each sprite. Click <strong class="calibre5">File <img src="images/00171.jpeg" alt="image" class="calibre3" /> Upload from your computer</strong> in the Scratch editor to load the <em class="calibre6">maze-skeleton.sb2</em> file.</p>
+<p class="indent">Even if you don’t use the skeleton project, you should download the ZIP file from the website. This file contains the maze images you’ll use in this chapter.</p>
+<p class="indent">If you want to create everything on your own, click File <img src="images/00171.jpeg" alt="image" class="calibre3" /> New to start a new Scratch project. In the text field in the upper left, rename the project from <em class="calibre6">Untitled</em> to <em class="calibre6">Maze Runner</em>.</p>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-365"></span><a id="calibre_link-67" class="calibre4"></a><p class="h3a"><img src="images/00033.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE CAT WALK AROUND</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">In the <em class="calibre6">Maze Runner</em> game, the player will control the cat sprite. In Part A, you’ll set up the code to control the cat with the arrow keys on the keyboard.</p>
+<div class="image"><img src="images/00094.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebary">
+<p class="sidebarty" id="calibre_link-68"><strong class="calibre2">EXPLORE: X- AND Y-COORDINATES</strong></p>
+<p class="noindent">To make the cat move around the Stage, you need to use coordinates. <em class="calibre6">Coordinates</em> are numbers that represent an exact location. The x-coordinate (also called <em class="calibre6">x position</em>) is a number that represents how far left or right a sprite is on the Stage. In other words, <span class="literal1"><strong class="calibre5">x</strong></span> is the sprite’s <em class="calibre6">horizontal</em> position. The y-coordinate (also called <em class="calibre6">y position</em>) is a number that represents how far up or down a sprite is on the Stage. The y-coordinate is a sprite’s <em class="calibre6">vertical</em> position.</p>
+<p class="indent">Used together, x- and y-coordinates indicate a sprite’s precise location on the Stage. When writing coordinates, the x-coordinate always comes first, and the coordinates are separated by a comma. For example, an x-coordinate of 42 and a y-coordinate of 100 would look like this: (42, 100).</p>
+<p class="indent">In the very center of the Stage is a point marked (0, 0), which is called the <em class="calibre6">origin</em>. In the following figure, I’m using the xy-grid backdrop from the Scratch Backdrop Library. (To load the xy-grid backdrop, click the <strong class="calibre5">Choose backdrop from library</strong> button next to the New backdrop label and select the backdrop.) I’ve added several cat sprites who are all saying their x- and y-coordinates.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-501"></span><img src="images/00096.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The rightmost side of the Stage has an x-coordinate of 240. The x-coordinates get smaller as you go left. In the center, the x-coordinate is 0. To the left of the center, the x-coordinates become negative numbers. The leftmost side of the Stage has an x-coordinate of &ndash;240. The y-coordinates work the same way: the top of the Stage has a y-coordinate of 180, the center is 0, and the bottom is &ndash;180.</p>
+<p class="indent">The mouse cursor’s x- and y-coordinates are also given in the bottom-right corner of the Stage. In the previous figure, the mouse cursor is at the coordinates (&ndash;182, &ndash;27), which means the x-coordinate is -182 and the y-coordinate is &ndash;27.</p>
+<p class="indent">Scratch displays the x- and y-coordinates of the currently selected sprite in the upper-right corner of the Scripts Area. Sprites move around the Stage when you change their x- and y-coordinates as shown here:</p>
+<table class="tabletb">
+<thead class="calibre18">
+<tr class="calibre12">
+<td class="table_th"><p class="table"><strong class="calibre5">To make a sprite go . . .</strong></p></td>
+<td class="table_th"><p class="table"><strong class="calibre5">change its . . .</strong></p></td>
+<td class="table_th"><p class="table"><strong class="calibre5">by a . . .</strong></p></td>
+</tr>
+</thead>
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="table1"><p class="table">Right</p></td>
+<td class="table1"><p class="table">x-coordinate</p></td>
+<td class="table1"><p class="table">positive number</p></td>
+</tr>
+<tr class="calibre12">
+<td class="table1"><p class="table">Left</p></td>
+<td class="table1"><p class="table">x-coordinate</p></td>
+<td class="table1"><p class="table">negative number</p></td>
+</tr>
+<tr class="calibre12">
+<td class="table1"><p class="table">Up</p></td>
+<td class="table1"><p class="table">y-coordinate</p></td>
+<td class="table1"><p class="table">positive number</p></td>
+</tr>
+<tr class="calibre12">
+<td class="table2"><p class="table">Down</p></td>
+<td class="table2"><p class="table">y-coordinate</p></td>
+<td class="table2"><p class="table">negative number</p></td>
+</tr>
+</tbody>
+</table>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-288"></span><img src="images/00098.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Many of the blocks in the dark blue <em class="calibre6">Motion</em> category will change a sprite’s x and y position, such as the <span class="literal1"><strong class="calibre5">change x by</strong></span> and <span class="literal1"><strong class="calibre5">change y by</strong></span> blocks. Note that changing a coordinate by a negative number is the same as subtracting a positive number from it.</p>
+</div>
+<h4 class="h3" id="calibre_link-69"><strong class="calibre2">1. Add Movement Code to the Player Sprite</strong></h4>
+<p class="noindent">The first bit of code you’ll add will make the arrow keys move the cat sprite, which is named <span class="literal1">Sprite1</span>. But first, click <span class="circk">i</span> and rename this sprite <span class="literal1">Orange Cat</span>. Then add the following code. You’ll find these blocks in the <em class="calibre6">Events</em>, <em class="calibre6">Control</em>, <em class="calibre6">Sensing</em>, and <em class="calibre6">Motion</em> categories.</p>
+<div class="image"><img src="images/00099.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">This code repeatedly checks whether the key is being pressed. The code literally reads “for forever, check whether the up arrow key is pressed, and if it is, then change <span class="literal1"><strong class="calibre5">y</strong></span> by <span class="literal1">4</span>.” <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-346"></span>If the up arrow key is not being pressed, Scratch skips the code inside the <span class="literal1"><strong class="calibre5">if then</strong></span> block.</p>
+<div class="image"><img src="images/00100.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Pressing the up arrow key makes the cat sprite move up. The <strong class="calibre5">forever</strong> loop block means Scratch will check over and over again whether the up arrow key is being pressed. This continues until you click the red stop sign.</p>
+<p class="indent">The <span class="literal1"><strong class="calibre5">forever</strong></span> block is needed for this program to work. Without it, Scratch would only check <em class="calibre6">once</em> if the up arrow key was pressed. Then the program would end. But you want Scratch to keep checking forever if the up arrow key is pressed. If your program doesn’t seem to be doing anything, make sure you didn’t forget to add the <span class="literal1"><strong class="calibre5">forever</strong></span> block.</p>
+<p class="indent">When you code this on your own, be sure you use the <span class="literal1"><strong class="calibre5">change y by</strong></span> code block instead of the <span class="literal1"><strong class="calibre5">change x by</strong></span> or <span class="literal1"><strong class="calibre5">set y to</strong></span> code blocks. If your program isn’t working correctly, check that your code is the same as the code in this book.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-502"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag and try moving the cat by pressing the up arrow key. Then click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-70"><strong class="calibre2">2. Duplicate the Movement Code for the Cat Sprite</strong></h4>
+<p class="noindent">Now you’ll add code for the other three arrow keys: down, left, and right. This code is similar to the code to move the cat sprite up. To save time, you can right-click on the yellow <span class="literal1"><strong class="calibre5">if then</strong></span> block and select <strong class="calibre5">duplicate</strong> to create a copy of the blocks. These blocks will be identical, so all you’ll need to change are the dark blue <em class="calibre6">Motion</em> blocks for the other directions. Duplicating blocks can often be faster than dragging new ones from the Blocks Area.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-428"></span><img src="images/00101.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Scratch will now check if the four arrow keys are held down, one after another. After checking the right arrow key, Scratch starts back at the top of the loop and checks the up arrow key again. The computer checks them so fast that to human eyes it looks like all of the arrow keys are being checked at the same time!</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-503"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. The cat should walk up, down, left, and right when you press the arrow keys. Notice that <span class="literal1">Orange Cat</span> is small enough to fit in the maze you’ll create next. Click the red stop sign and save your program.</p>
+<p class="indent">If your program doesn’t work and you don’t know how to fix it, you can start over by using the <em class="calibre6">maze-part-a.sb2</em> Scratch project file, which is in the resources ZIP file. Click <strong class="calibre5">File <img src="images/00013.jpeg" alt="image" class="calibre3" /> Upload from your computer</strong> in the Scratch editor to load the <em class="calibre6">maze-part-a.sb2</em> file, and then move on to Part B.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-426"></span><a id="calibre_link-71" class="calibre4"></a><p class="h3a"><img src="images/00161.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE MAZE LEVELS</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Next, we’ll create the maze sprite and set the backdrop. The maze game would quickly get boring if it had only one maze, so we’ll also add multiple levels to the game.</p>
+<h4 class="h3" id="calibre_link-72"><strong class="calibre2">3. Download the Maze Images</strong></h4>
+<p class="noindent">You could draw the maze sprite yourself, but let’s use images from the ZIP file instead. One of the maze images is the <em class="calibre6">Maze.sprite2</em> file.</p>
+<p class="indent">In the Scratch editor, click the <strong class="calibre5">Upload sprite from file</strong> button and select <em class="calibre6">Maze.sprite2</em> to upload the file. This creates a new sprite named <span class="literal1">Maze</span> with several maze costumes. Every sprite in Scratch can have multiple costumes to change the way it looks. These costumes, which you can see by clicking the <strong class="calibre5">Costumes</strong> tab, are often used to animate the sprite.</p>
+<p class="indent">Your Sprite List should look like this:</p>
+<div class="image"><img src="images/00102.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-73"><strong class="calibre2">4. Change the Backdrop</strong></h4>
+<p class="noindent">Let’s add a little flair to the maze by placing some artwork in the background. You can use whichever background you like. Change the Stage’s backdrop by clicking the <strong class="calibre5">Choose backdrop from library</strong> button under New backdrop to open the Scratch Backdrop Library window. Choose a background (I chose light), and click <strong class="calibre5">OK</strong>.</p>
+<h4 class="h3" id="calibre_link-74"><strong class="calibre2">5. Start at the First Maze</strong></h4>
+<p class="noindent">Add the following code to the <span class="literal1">Maze</span> sprite. You can find these blocks in the <em class="calibre6">Events</em>, <em class="calibre6">Looks</em>, and <em class="calibre6">Motion</em> categories.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-411"></span><img src="images/00105.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Each of the <span class="literal1">Maze</span> sprite’s costumes will be a new level. When the player clicks the green flag to start the program, the game should begin with the first costume and make sure the maze is in the center of the Stage. We will add code to switch to the next level in Steps 8 and 9.</p>
+<p class="indent">Note that the Scripts Area shows code blocks for the selected sprite. Be sure the <span class="literal1">Maze</span> sprite is selected in the Sprite List; otherwise, you’ll add the maze’s code to a different sprite. Each sprite needs its own code to work correctly. If you don’t see <span class="literal1">maze1</span> in the <span class="literal1"><strong class="calibre5">switch costume to</strong></span> block, the <span class="literal1">Orange Cat</span> sprite is most likely selected.</p>
+<p class="indent">If your Scratch program doesn’t work and you don’t know how to fix it, you can start over by using the <em class="calibre6">maze-part-b.sb2</em> Scratch project file, which is in the resources ZIP file. Click <strong class="calibre5">File <img src="images/00171.jpeg" alt="image" class="calibre3" /> Upload from your computer</strong> in the Scratch editor to load the <em class="calibre6">maze-part-b.sb2</em> file, and then move on to Part C.</p>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-75" class="calibre4"></a><p class="h3a"><img src="images/00178.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">KEEP THE CAT FROM WALKING THROUGH WALLS</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">When you click the green flag now, you’ll be able to move the cat through the maze. But you’ll also be able to move the cat through the walls of the maze, because nothing in the program prevents this from happening. The code only states, “when the right arrow key is pressed, move the cat right.” The cat moves, whether or not a wall is there.</p>
+<h4 class="h3" id="calibre_link-76"><strong class="calibre2">6. Check Whether the Cat Is Touching the Walls</strong></h4>
+<p class="noindent">Let’s add code that checks whether the cat is touching the blue walls. If it is, the cat should move backward. So if the cat moves to the right and is touching a wall, it should automatically move left. This will undo the player’s move and prevent <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-424"></span>the cat from moving through walls. Click the <span class="literal1">Orange Cat</span> sprite in the Sprite List, and modify the code to look like the following. Notice that we’re using the <span class="literal1"><strong class="calibre5">touching?</strong></span> block, not the <span class="literal1"><strong class="calibre5">touching color?</strong></span> block.</p>
+<div class="image"><img src="images/00106.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-410"></span>Also, you might have noticed that the <span class="literal1">Orange Cat</span> sprite is Godzilla-sized compared to the maze, making the cat look unrealistic. Add a <span class="literal1"><strong class="calibre5">set size</strong></span> block from the <em class="calibre6">Looks</em> category to make the <span class="literal1">Orange Cat</span> sprite smaller. You also want the <span class="literal1">Orange Cat</span> sprite to always be shown on top of the maze, so you’ll add the <span class="literal1"><strong class="calibre5">go to front</strong></span> block. These two code blocks are at the top of the script.</p>
+<div class="image"><img src="images/00109.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-504"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the <span class="literal1">Orange Cat</span> sprite cannot walk through the maze walls. Test this for all four directions. Then click the red stop sign and save your program.</p>
+<p class="indent">If your Scratch program doesn’t work and you don’t know how to fix it, you can start over by using the <em class="calibre6">maze-part-c.sb2</em> Scratch project file, which is in the resources ZIP file. Click <strong class="calibre5">File <img src="images/00013.jpeg" alt="image" class="calibre3" /> Upload from your computer</strong> in the Scratch editor to load the <em class="calibre6">maze-part-c.sb2</em> file, and then move on to Part D.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-77" class="calibre4"></a><p class="h3a"><img src="images/00110.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE A GOAL AT THE END OF THE MAZE</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Right now, it isn’t clear where the player is supposed to end up in the maze. Let’s add an apple at the other end of the maze to make the player’s goal more obvious.</p>
+<h4 class="h3" id="calibre_link-78"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-348" class="calibre1"></span><strong class="calibre2">7. Create the Apple Sprite</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Choose sprite from library</strong> button (which looks like a face) next to New sprite. When the Sprite Library window appears, select <strong class="calibre5">Apple</strong> and click <strong class="calibre5">OK</strong> to add a new sprite named <span class="literal1">Apple</span> to the Sprite List.</p>
+<p class="indent">When the game starts, you want the <span class="literal1">Apple</span> sprite to move to the end of the maze at the top of the Stage. The <span class="literal1">Apple</span> sprite also has to be small enough to fit in the maze. Add the following code to the <span class="literal1">Apple</span> sprite:</p>
+<div class="image"><img src="images/00111.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-79"><strong class="calibre2">8. Detect When the Player Reaches the Apple</strong></h4>
+<p class="noindent">The <em class="calibre6">Maze Runner</em> game has a sprite for the player, the maze, and the apple at the end of the maze. Now it just needs the code to detect when the player reaches the end. When that happens, you’ll have Scratch play a sound and then swap costumes to the next level. But before you add the code, you need to load the <span class="literal1">cheer</span> sound. Select <span class="literal1">Orange Cat</span> in the Sprite List. Click the <strong class="calibre5">Sounds</strong> tab at the top of the Blocks Area, and then click the <strong class="calibre5">Choose sound from library</strong> button. This button looks like a speaker and is under New sound.</p>
+<div class="image"><img src="images/00113.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">In the Sound Library window that appears, select <span class="literal1">cheer</span> and then click <strong class="calibre5">OK</strong> to load the <span class="literal1">cheer</span> sound. Now click the <strong class="calibre5">Scripts</strong> tab.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-338"></span>Add this script to the <span class="literal1">Orange Cat</span> sprite’s code:</p>
+<div class="image"><img src="images/00115.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">To make the <span class="literal1"><strong class="calibre5">broadcast</strong></span> block broadcast the <span class="literal1">next maze</span> message, click the black triangle in the <span class="literal1"><strong class="calibre5">broadcast</strong></span> block and select <strong class="calibre5">new message.</strong></p>
+<div class="image"><img src="images/00116.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">In the window that appears, type <em class="calibre6">next maze</em> as the message name and click <strong class="calibre5">OK</strong>.</p>
+<div class="image"><img src="images/00117.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-80"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-339" class="calibre1"></span><strong class="calibre2">9. Add the Broadcast Handling Code to the Maze Sprite</strong></h4>
+<p class="noindent">Click the <span class="literal1">Maze</span> sprite in the Sprite List, and add the following code to it:</p>
+<div class="image"><img src="images/00118.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">This code changes the maze level when it receives the <span class="literal1">next maze</span> broadcast.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-505"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Try playing the completed game. Make sure the level changes to the next maze when the cat touches the apple. Then click the red stop sign and save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-81"><strong class="calibre2">THE COMPLETE PROGRAM</strong></h3>
+<p class="noindent">The following code shows the entire program. If your program isn’t working right, check your code against this complete code. The complete program is also in the resources ZIP file as the <em class="calibre6">maze.sb2</em> file.</p>
+<div class="image"><img src="images/00121.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">I hope the code for this maze program isn’t too labyrinthine.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-506"></span><img src="images/00122.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-82"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-391" class="calibre1"></span><strong class="calibre2">VERSION 2.0: TWO-PLAYER MODE</strong></h3>
+<p class="noindent">Now that the basic maze game is working, you can do some iterative development and add small improvements one at a time. Iterative development helps you avoid trying to make a game that is too large for you to finish.</p>
+<p class="indent">In version 2.0 of <em class="calibre6">Maze Runner</em>, you’ll add a second player. The two players will race against one another. The first player starts at the bottom and races to the top; the second player races from the top to the bottom. Because they both must travel the same path, the distance for each is the same.</p>
+<div class="image"><img src="images/00124.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-83"><strong class="calibre2">Duplicate the Apple Sprite</strong></h4>
+<p class="noindent">The second player needs a goal too. Right-click the <span class="literal1">Apple</span> sprite and select <strong class="calibre5">duplicate</strong> to make a copy of the <span class="literal1">Apple</span> sprite and its code. The new sprite is automatically named <span class="literal1">Apple2</span>. Select the <span class="literal1">Apple2</span> sprite, and click the <strong class="calibre5">Costumes</strong> tab. Select a green color from the bottom, and then select the <strong class="calibre5">Fill</strong> tool to the right (it looks like a tipped cup). Then click the red part of the apple to change it to green. When you’re done, <span class="literal1">Apple2</span> will look like the following figure.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-507"></span><img src="images/00126.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-84"><strong class="calibre2">Modify the Apple2 Sprite’s Code</strong></h4>
+<p class="noindent">You need to modify the <span class="literal1">Apple2</span> sprite’s code to look like the following code so that the green apple starts at the bottom of the maze rather than the top:</p>
+<div class="image"><img src="images/00127.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-85"><strong class="calibre2">Duplicate the Orange Cat Sprite</strong></h4>
+<p class="noindent">Now let’s add a second cat sprite. Right-click the <span class="literal1">Orange Cat</span> sprite and select <strong class="calibre5">duplicate</strong> from the menu to make a copy of <span class="literal1">Orange Cat</span> and its code. The new sprite is automatically named <span class="literal1">Orange Cat2</span>. The <span class="literal1">Orange Cat</span> and <span class="literal1">Orange Cat2</span> sprites need to look different enough that the players can tell them <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-289"></span>apart. Similar to what you did for <span class="literal1">Apple2</span>, click the <strong class="calibre5">Costumes</strong> tab and change <span class="literal1">Orange Cat2</span> from orange to blue.</p>
+<div class="image"><img src="images/00128.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Click on the <span class="circk">i</span> button and rename <span class="literal1">Orange Cat2</span> to <span class="literal1">Blue Cat</span>.</p>
+<h4 class="h3" id="calibre_link-86"><strong class="calibre2">Modify the Code for the Blue Cat Sprite</strong></h4>
+<p class="noindent">Right now the <span class="literal1">Blue Cat</span> sprite has the same code as the <span class="literal1">Orange Cat</span> sprite. You’ll need to change the code; otherwise, the arrow keys will control both player 1 and player 2. The second player will control the <span class="literal1">Blue Cat</span> sprite using the WASD keys (pronounced <em class="calibre6">whaz-dee</em>). The W, A, S, and D keys are often used as a left-handed version of the up, left, down, and right arrow keys.</p>
+<div class="image"><img src="images/00129.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Change the two <span class="literal1"><strong class="calibre5">go to x y</strong></span> blocks and the <span class="literal1"><strong class="calibre5">key pressed?</strong></span> blocks for <span class="literal1">Blue Cat</span> to look like the following code. Also, remember to change <span class="literal1"><strong class="calibre5">if touching Apple</strong></span> to <span class="literal1"><strong class="calibre5">if touching Apple2</strong></span>.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-508"></span><img src="images/00256.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-87"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-509" class="calibre1"></span><strong class="calibre2">Go Back to the Starting Position</strong></h4>
+<p class="noindent">The sprites go back to their starting positions when they touch their apples, but they also need to go there when the other cat wins. Add the following script to the <span class="literal1">Orange Cat</span> sprite:</p>
+<div class="image"><img src="images/00133.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">And then add the following script to the <span class="literal1">Blue Cat</span> sprite:</p>
+<div class="image"><img src="images/00134.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">This way, when the other cat wins and broadcasts the <span class="literal1">next maze</span> message, both cats will go back to their starting positions.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-510"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Try moving both players using the arrow keys and the WASD keys. Make sure each of the eight keys moves the correct cat and only that cat. Try playing the full game. Make sure the level changes to the next maze when the second player touches the green apple. Make sure both players are sent to their starting points when the next level begins. Click the red stop sign and save your program.</p>
+</div>
+<p class="indent">You’ve just upgraded your maze game to support two players. Find a friend to race against! Player 1 uses the arrow keys, and player 2 uses the WASD keys.</p>
+<h3 class="h2" id="calibre_link-88"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-386" class="calibre1"></span><strong class="calibre2">VERSION 3.0: TRAPS</strong></h3>
+<p class="noindent">After you’ve played <em class="calibre6">Maze Runner</em> against another player a few times, running through the mazes can become too easy. Let’s make <em class="calibre6">Maze Runner</em> a bit more difficult by adding spike traps. The spike traps will shoot out spikes and then retract them. If a player touches the trap while the spikes are out, the player will slow down. This gives the other player time to race ahead!</p>
+<h4 class="h3" id="calibre_link-89"><strong class="calibre2">Draw a New Sprite for the Traps</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Paint new sprite</strong> button next to New sprite to draw a new sprite. This sprite will have two different costumes that we draw: one costume with the spikes retracted and another with the spikes out. But don’t worry, the spike trap drawings are simple. Just click the <strong class="calibre5">Line</strong> tool and the color black to draw a simple line, which is what the spike trap looks like when the spikes are retracted. Rename this costume <span class="literal1">trap off</span>.</p>
+<div class="image"><img src="images/00135.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-90"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-384" class="calibre1"></span><strong class="calibre2">Create a Second Costume for the Traps</strong></h4>
+<p class="noindent">The spike trap sprite needs a second costume to show what it looks like when the spikes are out. Right-click <span class="literal1">trap off</span> (the single line you drew) and select <strong class="calibre5">duplicate</strong> to create <span class="literal1">trap off2</span>. In <span class="literal1">trap off2</span>, select a gray color and draw the spikes coming out of the single line. Rename this costume <span class="literal1">trap on</span>.</p>
+<div class="image"><img src="images/00137.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Make sure the spike trap is small enough to fit in the maze. To shrink it, click the <strong class="calibre5">Shrink</strong> tool (as shown in the following figure), and then click the sprite on the Stage. Click the <strong class="calibre5">Shrink</strong> tool as many times as necessary to shrink it to the right size.</p>
+<div class="image"><img src="images/00138.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-360"></span>Also, click the <span class="circk">i</span> button for the sprite to open its Info Area, and rename it <span class="literal1">Trap</span>.</p>
+<h4 class="h3" id="calibre_link-91"><strong class="calibre2">Add Cloning Code for the Traps</strong></h4>
+<p class="noindent">Because you’ll want several traps in the maze, you could duplicate the <span class="literal1">Trap</span> sprite, but there’s a better way. You can use the clone blocks to make clones of the <span class="literal1">Trap</span> sprite. Make the <span class="literal1">Trap</span> sprite’s code look like this:</p>
+<div class="image"><img src="images/00139.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1"><strong class="calibre5">repeat 6</strong></span> loop will run the <span class="literal1"><strong class="calibre5">create clone of myself</strong></span> block six times to make six clones. These clones will then run the code in the <span class="literal1"><strong class="calibre5">when I start as a clone</strong></span> block. This script first moves the <span class="literal1">Trap</span> sprites to random positions in the maze. After the <span class="literal1"><strong class="calibre5">wait 2 secs</strong></span> block pauses them for a bit, the <span class="literal1"><strong class="calibre5">forever</strong></span> loop switches between the <span class="literal1">trap off</span> and <span class="literal1">trap on</span> costumes, which sticks out and retracts the spikes.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-511"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-448" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Try moving both players using the arrow keys and the WASD keys. Make sure each of the eight keys moves the correct cat and only that cat. Try playing the full game. Make sure the level changes to the next maze when the second player touches the green apple. Make sure both players are sent to their starting points when the next level begins. Click the red stop sign and save your program.</p>
+<div class="image"><img src="images/00141.jpeg" alt="image" class="calibre3" /></div>
+</div>
+<h4 class="h3" id="calibre_link-92"><strong class="calibre2">Modify the Orange Cat Code</strong></h4>
+<p class="noindent">Right now, the cats aren’t programmed to do anything when they touch the spikes. Select <span class="literal1">Orange Cat</span> in the Sprite List, and add the following code to the <em class="calibre6">bottom</em> of the existing code inside the <span class="literal1"><strong class="calibre5">forever</strong></span> block. To set the color in the <span class="literal1"><strong class="calibre5">touching color?</strong></span> block, click the color square in the block. The next color you click in the Scratch editor will become the selected color. Click the <span class="literal1">Trap</span> sprite spikes in the Sprite List to set the <span class="literal1"><strong class="calibre5">touching color?</strong></span> block to gray. (If you don’t see the spikes, click the <span class="literal1">Trap</span> sprite <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-512"></span>in the Sprite List, click the <strong class="calibre5">Costumes</strong> tab, and then select <span class="literal1">trap on</span>. The costume with the spikes appears for the sprite in the Sprite List.) Add the following code to the script with the <span class="literal1"><strong class="calibre5">key pressed?</strong></span> blocks:</p>
+<div class="image"><img src="images/00143.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-513"></span>The cat can walk over the trap clones just fine when the spikes are retracted, because the gray color is not shown. But if the spikes are out, the cat will touch the gray color and pause to say “Ouch!” for 2 seconds.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-514"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Try moving the orange cat over the traps when the spikes are in and out. The cat should only say “Ouch!” when the spikes are out. Click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-93"><strong class="calibre2">Copy the Code from Orange Cat to Blue Cat</strong></h4>
+<p class="noindent">The second player’s cat, <span class="literal1">Blue Cat</span>, also needs the code for setting the color in the <span class="literal1"><strong class="calibre5">touching color?</strong></span> block. You can use this shortcut: click and drag the yellow part of the <span class="literal1"><strong class="calibre5">if touching color? then</strong></span> block in <span class="literal1">Orange Cat</span> and drop it over <span class="literal1">Blue Cat</span> in the Sprite List. The code block will move back to its original place in <span class="literal1">Orange Cat</span> and will also be duplicated in <span class="literal1">Blue Cat</span>. This duplicating technique is usually faster than dragging new blocks from the Blocks Area.</p>
+<div class="image"><img src="images/00144.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Select <span class="literal1">Blue Cat</span> in the Sprite List. Move the duplicated code to the bottom of the <span class="literal1"><strong class="calibre5">forever</strong></span> loop. The code looks the same as the code in <span class="literal1">Orange Cat</span>. The following figure shows how to drag and duplicate these code blocks.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-427"></span><img src="images/00145.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">You’ve finished version 3.0 of <em class="calibre6">Maze Runner</em>. With traps and two players, <em class="calibre6">Maze Runner</em> is now more interesting than the basic 1.0 version. You can always come up with new features you want to add on your own. But first, let’s add some secret cheats that players can use to hack the game.</p>
+<h3 class="h2" id="calibre_link-94"><strong class="calibre2">CHEAT MODE: WALK THROUGH WALLS</strong></h3>
+<p class="noindent">Teleporting is a cool cheat, but players can’t control where they teleport to. Also, it’s too obvious that a player is cheating when they suddenly move across the Stage and through many walls. However, you can add a more subtle cheat that lets the cats move through walls when a special key is held down.</p>
+<div class="image"><img src="images/00251.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-95"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-515" class="calibre1"></span><strong class="calibre2">Add the Walk-Through-Walls Code to Orange Cat</strong></h4>
+<p class="noindent">For the <span class="literal1">Orange Cat</span> sprite, modify the walking code so the <span class="literal1"><strong class="calibre5">touching Maze?</strong></span> blocks are replaced with the <span class="literal1"><strong class="calibre5">touching Maze? and not key l pressed?</strong></span> blocks. Only the code for the up arrow is shown here, but you’ll want to replace the <span class="literal1"><strong class="calibre5">touching Maze?</strong></span> blocks in all four of the <span class="literal1"><strong class="calibre5">if key pressed</strong></span> cases.</p>
+<div class="image"><img src="images/00252.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">This enables the wall-blocking code only if the L key is <em class="calibre6">not</em> being pressed. If the L key <em class="calibre6">is</em> pressed, this wall-blocking code is skipped, and the player walks through the walls.</p>
+<h4 class="h3" id="calibre_link-96"><strong class="calibre2">Add the Walk-Through-Walls Code to Blue Cat</strong></h4>
+<p class="noindent">Make the same walk-through-walls code changes to the <span class="literal1">Blue Cat</span> sprite, except instead of <span class="literal1"><strong class="calibre5">key l pressed</strong></span>, make it <span class="literal1"><strong class="calibre5">key q pressed</strong></span>. The second player can walk through walls when the Q key is held down.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-516"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Try walking through the walls by holding down the L or Q key. Make sure both cats can walk through walls but only when holding down the correct key. Click the red stop sign and save your program.</p>
+<p class="indent">With this cheat code in the program, you can hack the game and make your cat walk through walls. The wall cheat shows you that anything is possible in your Scratch programs!</p>
+</div>
+<h3 class="h2" id="calibre_link-97"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-517" class="calibre1"></span><strong class="calibre2">SUMMARY</strong></h3>
+<p class="noindent">In this chapter, you built a game that</p>
+<p class="arrowt"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has a cat sprite that can walk up, down, left, and right when the player presses certain keys</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has walls that the sprites can’t walk through</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Broadcasts messages from one sprite that another sprite can receive</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has a maze sprite with eight different costumes</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Supports two players using different keyboard keys</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Adds traps that turn on at random intervals to delay players</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Includes cheat modes that let the cats walk through walls</p>
+<p class="indentt">A two-player game is more exciting than a single-player game. Now, instead of just solving a maze, you are racing against another player! And you get to show off your Scratch game to someone else.</p>
+<p class="indent">In <a href="#calibre_link-4" class="calibre4">Chapter 4</a>, you’ll work with a basketball game. This game uses a side view, unlike the maze’s bird’s-eye view. But this means you’ll be able to add jumping and gravity, which are great techniques to use in many types of Scratch games!</p>
+<div class="image"><img src="images/00253.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebarb">
+<p class="sidebartb" id="calibre_link-98"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-518" class="calibre1"></span><strong class="calibre2">REVIEW QUESTIONS</strong></p>
+<p class="noindent">Try to answer the following practice questions to test what you’ve learned. You probably won’t know all the answers off the top of your head, but you can explore the Scratch editor to figure out the answers. (The answers are also online at <em class="calibre6"><a href="http://www.nostarch.com/scratchplayground/" class="calibre4">http://www.nostarch.com/scratchplayground/</a></em>.)</p>
+<ol class="calibre16">
+<li value="1" class="calibre17"><p class="noindent">Which block will change the size of a sprite?</p></li>
+<li value="2" class="calibre17"><p class="noindent">How can the code in one sprite send a message to another sprite to do something?</p></li>
+<li value="3" class="calibre17"><p class="noindent">How might you use the WASD keys on the keyboard?</p></li>
+<li value="4" class="calibre17"><p class="noindent">How can you duplicate some code blocks from one sprite to another sprite?</p></li>
+<li value="5" class="calibre17"><p class="noindent">What will happen if you accidentally use a <span class="literal1"><strong class="calibre5">change y</strong></span> <span class="literal1">by</span> code block instead of a <span class="literal1"><strong class="calibre5">change x</strong></span> <span class="literal1">by</span> code block?</p></li>
+<li value="6" class="calibre17"><p class="noindent">If you want a sprite to play the <span class="literal1">cheer</span> sound, how do you load this sound?</p></li>
+<li value="7" class="calibre17"><p class="noindent">Look at the following code. It lets the player press the arrow keys to move the sprite left and right. It works, but what would you change to make the sprite walk faster?</p></li>
+</ol>
+<div class="image"><img src="images/00108.jpeg" alt="image" class="calibre3" /><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-519"></span></div>
+</div>
+</div>
+
+</body></html>

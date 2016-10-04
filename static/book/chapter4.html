@@ -1,0 +1,235 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><link href="style.css" rel="stylesheet" type="text/css" /><title>Scratch Programming Playground</title></head><body>
+
+
+
+
+<div id="calibre_link-0" class="calibre">
+<h2 class="h1" id="calibre_link-4"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-310" class="calibre1"></span><strong class="calibre2">4</strong><br class="calibre9" /><strong class="calibre2">SHOOTING HOOPS WITH GRAVITY</strong></h2>
+<p class="noindent">Many platformer games, such as <em class="calibre6">Super Mario Bros.</em> and <em class="calibre6">Donkey Kong Country</em>, show a side view of the action, where the bottom of the screen is the ground and the character is shown from the side. These games have <em class="calibre6">gravity</em>: characters can jump up and then fall until they land on the ground. In this chapter, we’ll write a basketball game that has gravity. The player will jump and throw a basketball, and the basketball player and ball will fall downward.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-312"></span>Before you start coding, look at the final program at <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em>.</p>
+<div class="image"><img src="images/00255.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-100"><strong class="calibre2">SKETCH OUT THE DESIGN</strong></h3>
+<p class="noindent">First, let’s sketch out what we want the game to do. The player controls the cat, which can move left and right and jump. The goal is to have the cat shoot baskets into a moving basketball hoop, which will glide around the Stage randomly.</p>
+<div class="image"><img src="images/00257.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-314"></span>If you want to save time, you can start from the skeleton project file, named <em class="calibre6">basketball-skeleton.sb2</em>, in the resources ZIP file. Go to <em class="calibre6"><a href="https://www.nostarch.com/scratchplayground/" class="calibre4">https://www.nostarch.com/scratchplayground/</a></em> and download the ZIP file to your computer by right-clicking the link and selecting <strong class="calibre5">Save link as</strong> or <strong class="calibre5">Save target as</strong>. Extract all the files from the ZIP file. The skeleton project file has all the sprites already loaded, so you’ll only need to drag the code blocks into each sprite.</p>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-101" class="calibre4"></a><p class="h3a"><img src="images/00033.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE CAT JUMP AND FALL</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Let’s start by adding gravity to make the cat jump up and fall down.</p>
+<h4 class="h3" id="calibre_link-102"><strong class="calibre2">1. Add the Gravity Code to the Cat Sprite</strong></h4>
+<p class="noindent">Click the <span class="circk">i</span> button for the <span class="literal1">Sprite1</span> sprite to open its Info Area. Rename the sprite <span class="literal1">Cat</span>, and then close the Info Area. Then rename the program from <em class="calibre6">Untitled</em> to <em class="calibre6">Basketball</em> in the text field at the top of the Scratch editor.</p>
+<p class="indent">Click the <strong class="calibre5">Choose backdrop from library</strong> button under New backdrop to open the Backdrop Library window. Select <strong class="calibre5">brick wall1</strong> and click <strong class="calibre5">OK</strong> to change the backdrop. The Stage will look like this:</p>
+<div class="image"><img src="images/00258.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-374"></span>Programming gravity requires <em class="calibre6">variables</em>. You can think of a variable as a box for storing numbers or text that you can use later in your program. We’ll create a variable that contains a number representing how fast the cat is falling.</p>
+<p class="indent">First, make sure the <span class="literal1">Cat</span> sprite is selected in the Sprite List and then click the Scripts tab. In the orange <em class="calibre6">Data</em> category, click the <strong class="calibre5">Make a Variable</strong> button to bring up the New Variable window. Enter <span class="literal1">y velocity</span> as the variable name. (<em class="calibre6">Velocity</em> means how fast something is going and in what direction. When <span class="literal1">y velocity</span> is a positive number, the cat moves up. When <span class="literal1">y velocity</span> is a negative number, the cat moves down.) Make sure <strong class="calibre5">For this sprite only</strong> is selected. (If you see only For all sprites, the Stage is selected, not the <span class="literal1">Cat</span> sprite.) Then click <strong class="calibre5">OK</strong>.</p>
+<div class="image"><img src="images/00259.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Several new blocks will appear in the <em class="calibre6">Data</em> category, and one of those is the round <span class="literal1">y velocity</span> variable block, shown here:</p>
+<div class="image"><img src="images/00260.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebary">
+<p class="sidebarty" id="calibre_link-103"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-397" class="calibre1"></span><strong class="calibre2">EXPLORE: FOR ALL SPRITES VS. FOR THIS SPRITE ONLY</strong></p>
+<p class="noindent">When you create the <span class="literal1">y velocity</span> variable, you have to select <strong class="calibre5">For this sprite only</strong>. This option creates a variable that <em class="calibre6">only</em> the <span class="literal1">Cat</span> sprite can use. The For all sprites option will create a variable that all sprites can use.</p>
+<p class="indent">To identify the kind of variable you’ve created, check the box next to the round variable block in the Blocks Area to make the variable appear on the Stage. If you selected For this sprite only, the sprite name will display in front of the variable name. But if you selected For all sprites, only the variable name will show.</p>
+<div class="image"><img src="images/00261.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">If you made a mistake and the sprite name <span class="literal1">Cat</span> does not appear at the start of the variable name in your program, right-click the <span class="literal1"><strong class="calibre5">y velocity</strong></span> block in the orange <em class="calibre6">Data</em> category and select <strong class="calibre5">delete variable</strong> from the menu. Then create the <span class="literal1">y velocity</span> variable again, making sure you select <strong class="calibre5">For this sprite only</strong>.</p>
+</div>
+<p class="indent">As with any variable block, you can place the <span class="literal1">y velocity</span> block anywhere you would normally enter a number or some <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-376"></span>text. The code block will use the number or text set in the variable. When you use variables, your program can change the variable’s number or text <em class="calibre6">while the program is running</em>.</p>
+<p class="indent">To put a value in your variable, you use the orange <span class="literal1"><strong class="calibre5">set to</strong></span> block. For example, if you created a variable <span class="literal1">greeting</span>, you could use <span class="literal1"><strong class="calibre5">set to</strong></span> to put the value <span class="literal1">Hello!</span> in it. Then, you could use <span class="literal1">greeting</span> in a <span class="literal1"><strong class="calibre5">say</strong></span> block, which would be the same as entering <span class="literal1">Hello!</span>. (Don’t add these blocks or create a <span class="literal1">greeting</span> variable in your <em class="calibre6">Basketball</em> program; this is just an example.)</p>
+<div class="image"><img src="images/00262.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">If you want to change the greeting text while the program is running, you can add another <span class="literal1"><strong class="calibre5">set to</strong></span> block to your program. If the variable contains a number, you can add to or subtract from this number by using the <span class="literal1"><strong class="calibre5">change by</strong></span> block.</p>
+<p class="indent">Gravity makes objects <em class="calibre6">accelerate</em> downward. In the game, the <span class="literal1">Cat</span> sprite has to move down, and the speed at which it moves down must change <em class="calibre6">while the program is running</em>. Add the following code to the <span class="literal1">Cat</span> sprite to add gravity to your Scratch program. This is the minimal amount of code you need to make a sprite fall under gravity. You could add this code to any sprite to make it fall.</p>
+<div class="image"><img src="images/00264.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-272"></span>When you click the green flag, the <span class="literal1">y velocity</span> variable is set to <span class="literal1">0</span>, and then the script enters a <span class="literal1"><strong class="calibre5">forever</strong></span> loop. The y position (vertical position) of the <span class="literal1">Cat</span> sprite is changed by <span class="literal1">y velocity</span>, and <span class="literal1">y velocity</span> is changed by <span class="literal1">-2</span>. As the program goes through the loop, the y position will change faster and faster, making the cat fall faster and faster.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-520"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Before you click the green flag, drag the <span class="literal1">Cat</span> sprite to the top of the Stage. When you click the green flag, notice that the cat begins to fall. If you want the cat to fall again, click the red stop sign, move the <span class="literal1">Cat</span> sprite back to the top of the Stage, and click the green flag again. Save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-104"><strong class="calibre2">2. Add the Ground Level Code</strong></h4>
+<p class="noindent">Right now, the cat falls. But we want the cat to stop when it hits the ground. Let’s keep adding to the <span class="literal1">Cat</span> sprite’s code so it looks this:</p>
+<div class="image"><img src="images/00266.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-290"></span>In this code, we set the <span class="literal1"><strong class="calibre5">y position</strong></span> of the ground level to <span class="literal1">-130</span>. If the <span class="literal1">Cat</span> sprite’s y position is greater than (above) the ground level, then <span class="literal1">y velocity</span> is changed by <span class="literal1">-2</span> and the <span class="literal1">Cat</span> sprite will fall. Eventually, the <span class="literal1">Cat</span> sprite will fall past <span class="literal1">-130</span>, and its y position will be less than (below) the <span class="literal1">-130</span> ground level. When that happens, the <span class="literal1">Cat</span> sprite will be reset at the ground level of <span class="literal1">-130</span>, and <span class="literal1">y velocity</span> will go back to <span class="literal1">0</span> to stop the sprite from falling.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-521"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Drag the cat up using your mouse, and let go. Make sure the cat falls to the ground but does not fall past the edge of the Stage. You can experiment with different ground levels by changing <span class="literal1">-130</span> to another number. Then click the red stop sign and save your program.</p>
+</div>
+<p class="indent">When you’re done testing your program, make the <span class="literal1">y velocity</span> variable invisible on the Stage by unchecking the checkbox next to it in the orange <em class="calibre6">Data</em> category.</p>
+<h4 class="h3" id="calibre_link-105"><strong class="calibre2">3. Add the Jumping Code to the Cat Sprite</strong></h4>
+<p class="noindent">After adding the gravity code to the <span class="literal1">Cat</span> sprite, making the cat jump is easy. Add this code to the <span class="literal1">Cat</span> sprite:</p>
+<div class="image"><img src="images/00267.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Now when you press the up arrow key, <span class="literal1">y velocity</span> is set to the positive number <span class="literal1">20</span>, making the <span class="literal1">Cat</span> sprite jump up. But the <span class="literal1">y velocity</span> variable will still be changed by <span class="literal1">-2</span> each time the <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-316"></span>loop runs. So although the cat jumps by 20 at first, the next time through the loop it will be at 18, then 16, and so on. Notice that the <span class="literal1"><strong class="calibre5">if then</strong></span> block checks that the <span class="literal1">Cat</span> sprite is on the ground. You shouldn’t be able to make the cat jump if it’s already in midair!</p>
+<div class="image"><img src="images/00268.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">When <span class="literal1">y velocity</span> is set to <span class="literal1">0</span>, the <span class="literal1">Cat</span> sprite is at the peak of the jump. Then <span class="literal1">y velocity</span> changes by <span class="literal1">-2</span> each time through the loop, and the <span class="literal1">Cat</span> sprite continues falling until it hits the ground. Try experimenting with different numbers for the <span class="literal1"><strong class="calibre5">set y velocity to</strong></span> and <span class="literal1"><strong class="calibre5">change y velocity by</strong></span> blocks. Figure out how to make the cat jump higher or lower (but always above the ground) or make gravity stronger or weaker.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-522"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Press the up arrow key, and make sure the cat jumps up and falls back down. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-106" class="calibre4"></a><p class="h3a"><img src="images/00161.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE CAT MOVE LEFT AND RIGHT</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Let’s add the <span class="literal1">Cat</span> sprite’s walking code next so that the player can control the cat with the keyboard.</p>
+<div class="image"><img src="images/00248.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-107"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-291" class="calibre1"></span><strong class="calibre2">4. Add the Walking Code to the Cat Sprite</strong></h4>
+<p class="noindent">Add the following code to the bottom of the <span class="literal1">Cat</span> sprite’s code:</p>
+<div class="image"><img src="images/00250.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Inside the <span class="literal1"><strong class="calibre5">forever</strong></span> loop, the program checks if the left arrow or right arrow key is being pressed. If it is, the <span class="literal1">Cat</span> sprite switches to the next costume and changes its x position by <span class="literal1">-10</span> (moves to the left) or <span class="literal1">10</span> (moves to the right). The <span class="literal1">Cat</span> sprite comes with two costumes that you can view by clicking the Costumes tab above the Blocks Area. By switching between the two costumes using the <span class="literal1"><strong class="calibre5">next costume</strong></span> block, you can make it look like the cat is walking.</p>
+<div class="image"><img src="images/00269.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-523"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Press the left and right arrow keys, and make sure the cat moves in the correct direction. It’s okay if the cat walks backward when moving to the left; that’s what we want. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-315"></span><a id="calibre_link-108" class="calibre4"></a><p class="h3a"><img src="images/00178.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE A HOVERING BASKETBALL HOOP</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Now that the <span class="literal1">Cat</span> sprite is complete, let’s move on to the next sprite in the game: the basketball hoop.</p>
+<h4 class="h3" id="calibre_link-109"><strong class="calibre2">5. Create the Hoop Sprite</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Paint new sprite</strong> button next to New sprite. Before you start drawing, click the <strong class="calibre5">Convert to vector</strong> button in the lower-right corner. The drawing tool buttons will appear on the right side of the Paint Editor. (Vector mode lets you draw using shapes, rather than drawing the individual pixels of an image.) Click the yellow color and use the Ellipse tool to draw a hoop. You can also slide the Line width slider in the lower-left corner to make the ellipse’s line thicker. Make sure the Paint Editor’s crosshairs are in the center of the hoop.</p>
+<div class="image"><img src="images/00271.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Rename the sprite <span class="literal1">Hoop</span> in its Info Area. We want the <span class="literal1">Hoop</span> sprite to play a cheer sound when the player makes a basket, so let’s load the <span class="literal1">cheer</span> sound next. Click the <strong class="calibre5">Sounds</strong> tab at the top of the Blocks Area, and then click the <strong class="calibre5">Choose sound from library</strong> button under New sound. When the Sound Library window opens, select <span class="literal1">cheer</span> and click <strong class="calibre5">OK</strong>.</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-394"></span><img src="images/00272.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1">cheer</span> sound will now appear as an option for the <span class="literal1"><strong class="calibre5">play sound</strong></span> block you’ll add to the <span class="literal1">Hoop</span> sprite.</p>
+<div class="image"><img src="images/00274.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Add the following code to the <span class="literal1">Hoop</span> sprite to make it glide randomly around the top half of the Stage. You’ll need to create a broadcast message by clicking the <span class="literal1"><strong class="calibre5">when I receive</strong></span> block’s black triangle and selecting <strong class="calibre5">new message</strong>. Name the new broadcast message <span class="literal1">swoosh</span>.</p>
+<div class="image"><img src="images/00275.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-412"></span>Script <span class="ent1">➊</span> makes the hoop slide to a new position every second. A moving hoop will make the game more challenging to play! Script <span class="ent1">➋</span> plays the <span class="literal1">cheer</span> sound and displays “Swoosh!” when the <span class="literal1">swoosh</span> broadcast is received. Later, we’ll make the <span class="literal1">Basketball</span> sprite broadcast this message when a basket is made.</p>
+<h4 class="h3" id="calibre_link-110"><strong class="calibre2">6. Create the Hitbox Sprite</strong></h4>
+<p class="noindent">Now let’s think about how to create code that determines whether or not the player makes a basket. We could write a program that checks whether the basketball is simply <em class="calibre6">touching</em> the hoop. But because the hoop is so wide, just the edges of the basketball touching the hoop would count as a basket. We want the basket to count only if the basketball goes through the middle of the hoop. We’ll have to think of a better fix.</p>
+<div class="image"><img src="images/00276.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Instead, you can create a <em class="calibre6">hitbox</em>. A hitbox is a game-design term for a rectangular area that determines whether two game objects have collided with each other. We’ll make a hitbox sprite. Create a new sprite by clicking the <strong class="calibre5">Paint new sprite</strong> button next to New sprite. Draw a small black square in the middle of the crosshairs by using the Rectangle tool and selecting the solid fill option. Rename this sprite <span class="literal1">Hitbox</span>. The <span class="literal1">Hitbox</span> sprite will look like this:</p>
+<div class="image"><img src="images/00277.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-408"></span>Add the following code to the <span class="literal1">Hitbox</span> sprite:</p>
+<div class="image"><img src="images/00279.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1">Hitbox</span> sprite will now follow the <span class="literal1">Hoop</span> sprite, no matter where it glides.</p>
+<p class="indent">In Step 9, we’ll write a program that makes sure a basket counts only if the basketball is touching the <span class="literal1">Hitbox</span> sprite, not the <span class="literal1">Hoop</span> sprite. The basketball will have to be much closer to the middle of the hoop to count as a basket!</p>
+<div class="image"><img src="images/00280.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">It looks odd to see a black square in the middle of the <span class="literal1">Hoop</span> sprite, so let’s make the <span class="literal1">Hitbox</span> sprite invisible. Add the <span class="literal1"><strong class="calibre5">set ghost effect</strong></span> block to the <span class="literal1">Hitbox</span> sprite and set it to <span class="literal1">100</span>.</p>
+<div class="image"><img src="images/00282.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">There’s a difference between the <span class="literal1"><strong class="calibre5">hide</strong></span> block and the <span class="literal1"><strong class="calibre5">set ghost effect to 100</strong></span> block. If you used the <span class="literal1"><strong class="calibre5">hide</strong></span> block to make the <span class="literal1">Hitbox</span> sprite invisible, the touching blocks would never detect that the ball was touching the <span class="literal1">Hitbox</span> sprite, and the player would never be able to score. The <span class="literal1"><strong class="calibre5">set ghost effect to 100</strong></span> block makes the sprite invisible, but this block still allows the touching blocks to detect the <span class="literal1">Hitbox</span> sprite’s presence.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-524"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-317" class="calibre1"></span><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Make sure the hoop glides around the Stage and the hitbox rectangle is always in the middle of it. Then click the red stop sign and save your program.</p>
+</div>
+<table class="calibre10">
+<tbody class="calibre11">
+<tr class="calibre12">
+<td class="calibre13"><a id="calibre_link-111" class="calibre4"></a><p class="h3a"><img src="images/00110.jpeg" alt="image" class="calibre14" /></p></td>
+<td class="calibre13"><p class="h3a"><strong class="calibre2">MAKE THE CAT SHOOT HOOPS</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p class="toc">Next, you’ll add a basketball for the cat to throw. Like the cat, the basketball will have gravity code and fall to the ground.</p>
+<h4 class="h3" id="calibre_link-112"><strong class="calibre2">7. Create the Basketball Sprite</strong></h4>
+<p class="noindent">Click the <strong class="calibre5">Choose sprite from library</strong> button next to New sprite to open the Sprite Library window. Select the <strong class="calibre5">Basketball</strong> and click <strong class="calibre5">OK</strong>.</p>
+<p class="indent">Next, click the <strong class="calibre5">Sounds</strong> tab at the top of the Blocks Area, and then click the <strong class="calibre5">Choose sound from library</strong> button next to New sound to open the Sound Library window. Select the <span class="literal1">pop</span> sound and click <strong class="calibre5">OK</strong>. Click the <strong class="calibre5">Scripts</strong> tab at the top of the Blocks Area to bring back the Scripts Area.</p>
+<p class="indent">Now go to the orange <em class="calibre6">Data</em> category. You’ll make two variables. Click the <strong class="calibre5">Make a Variable</strong> button. Name the variable <span class="literal1">y velocity</span>, and make sure <strong class="calibre5">For this sprite only</strong> is selected before you click <strong class="calibre5">OK</strong>. Because they are For this sprite only variables, the <span class="literal1">Basketball</span> sprite’s <span class="literal1">y velocity</span> variable is separate from the <span class="literal1">Cat</span> sprite’s <span class="literal1">y velocity</span> variable. Even though they have the same name, they are two different variables.</p>
+<div class="image"><img src="images/00283.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Click the <strong class="calibre5">Make a Variable</strong> button again to make another variable named <span class="literal1">Player 1 Score</span>, but this time select <strong class="calibre5">For all</strong> <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-358"></span><strong class="calibre5">sprites</strong>. (We capitalize <span class="literal1">Player 1 Score</span> because we’ll make it visible on the Stage. Uncheck the box next to <span class="literal1">y velocity</span> to hide it on the Stage.) The new variable blocks should appear in the orange <em class="calibre6">Data</em> category.</p>
+<div class="image"><img src="images/00284.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-113"><strong class="calibre2">8. Add the Code for the Basketball Sprite</strong></h4>
+<p class="noindent">After you’ve added the <span class="literal1">pop</span> sound and two variables, add this code to the <span class="literal1">Basketball</span> sprite:</p>
+<div class="image"><img src="images/00285.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">Script <span class="ent1">➊</span> makes sure the player starts with 0 points and hides the <span class="literal1">Basketball</span> sprite to start.</p>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-525"></span>Script <span class="ent1">➋</span> uses code similar to the <span class="literal1">Cat</span> sprite code. When the player presses the spacebar, the basketball appears in front of the cat and starts moving forward. The code sets the <span class="literal1">Basketball</span> sprite’s <span class="literal1">y velocity</span> variable to a positive number, just like how the <span class="literal1">Cat</span> sprite’s <span class="literal1">y velocity</span> variable is set to a positive number when the cat jumps; this is how the cat throws the ball.</p>
+<p class="indent">The <span class="literal1"><strong class="calibre5">repeat until y position &lt; -130</strong></span> block will keep the <span class="literal1">Basketball</span> sprite falling until it reaches the ground. When it reaches the ground, the basketball will be hidden until the next time the player presses the spacebar.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-526"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Press the spacebar to make the cat throw the basketball. Make sure the basketball disappears when it touches the ground. Then click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-114"><strong class="calibre2">9. Detect Whether a Basket Is Made</strong></h4>
+<p class="noindent">Next, you’ll add the code that checks whether the <span class="literal1">Basketball</span> sprite is touching the <span class="literal1">Hitbox</span> sprite. This is how you know whether a basket has been made, and if it has, the <span class="literal1">Player 1 Score</span> variable should increase. However, there is one snag: the basket shouldn’t count if the basketball goes <em class="calibre6">up</em> through the hoop.</p>
+<p class="indent">Keep in mind that if the <span class="literal1">y velocity</span> variable is positive, the <span class="literal1"><strong class="calibre5">change y by y velocity</strong></span> block will move the <span class="literal1">Basketball</span> sprite up. If <span class="literal1">y velocity</span> is <span class="literal1">0</span>, then the <span class="literal1">Basketball</span> sprite is not moving up or down. But if <span class="literal1">y velocity</span> is a negative number, then the <span class="literal1">Basketball</span> sprite will be falling down.</p>
+<p class="indent">So you’ll add another <span class="literal1"><strong class="calibre5">if then</strong></span> condition to the <span class="literal1">Basketball</span> sprite’s code. You’ll increase the score only if the basketball is touching the hitbox (using the <span class="literal1"><strong class="calibre5">touching Hitbox?</strong></span> block) and falling <em class="calibre6">downward</em> (<span class="literal1"><strong class="calibre5">y velocity &lt; 0</strong></span>).</p>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-274"></span><img src="images/00286.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">The <span class="literal1"><strong class="calibre5">and</strong></span> block combines two conditions. For Scratch to run the code blocks inside the <span class="literal1"><strong class="calibre5">if then</strong></span> block, <em class="calibre6">both</em> of these conditions must be true. It isn’t enough for the sprite to be touching the <span class="literal1">Hitbox</span> sprite <em class="calibre6">or</em> for the <span class="literal1">y velocity</span> variable to be less than <span class="literal1">0</span>. Both <span class="literal1"><strong class="calibre5">touching Hitbox?</strong></span> <em class="calibre6">and</em> <span class="literal1"><strong class="calibre5">y velocity &lt; 0</strong></span> must be true for the player to score. If these conditions are true, the <span class="literal1">Player 1 Score</span> variable is increased by <span class="literal1">1</span> and the <span class="literal1">swoosh</span> message is broadcasted.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-527"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Shoot some baskets. The <span class="literal1">Player 1 Score</span> variable should increase only if the basketball touches the center of the hoop and is moving down. The <span class="literal1">Hoop</span> sprite should also say <em class="calibre6">swoosh</em> and play the <span class="literal1">cheer</span> sound when this happens. Click the red stop sign and save your program.</p>
+</div>
+<h4 class="h3" id="calibre_link-115"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-359" class="calibre1"></span><strong class="calibre2">10. Fix the Scoring Bug</strong></h4>
+<p class="noindent">Did you notice that <span class="literal1">Player 1 Score</span> increases by several points for a single basket? This is a <em class="calibre6">bug</em>, which is a problem that makes the program behave in an unexpected way. We’ll need to take another careful look at the code to figure out why this happens.</p>
+<p class="indent">The <span class="literal1"><strong class="calibre5">repeat until</strong></span> loop block keeps looping until the ball hits the ground, so all of this code is for a single throw. The <span class="literal1"><strong class="calibre5">repeat until</strong></span> loop block checks several times whether or not the <span class="literal1">Basketball</span> sprite is touching the <span class="literal1">Hitbox</span> sprite and falling down. The <span class="literal1">Player 1 Score</span> should increase only the first time.</p>
+<p class="indent">You fix this bug by creating a new variable that keeps track of the first time the basketball touches the hoop for a single throw. Then you can make sure the player scores a point only once per throw.</p>
+<p class="indent">Click the orange <em class="calibre6">Data</em> category at the top of the Blocks Area, and then click <strong class="calibre5">Make a Variable</strong>. Name the variable <span class="literal1">made basket</span> and select <strong class="calibre5">For this sprite only</strong>. Then modify the <span class="literal1">Basketball</span> sprite code.</p>
+<div class="image"><img src="images/00289.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-270"></span>The <span class="literal1">made basket</span> variable is set to <span class="literal1">no</span> when the player first presses the spacebar. This makes sense because the player has not made a basket when the ball is initially thrown. We’ll also use an <span class="literal1"><strong class="calibre5">and</strong></span> block to add another condition to the code that checks whether a basket has been made. A basket is now detected and the code in the <span class="literal1"><strong class="calibre5">if then</strong></span> block is run when three conditions are true:</p>
+<div class="image"><img src="images/00290.jpeg" alt="image" class="calibre3" /></div>
+<ol class="calibre16">
+<li value="1" class="calibre17"><p class="noindent">The <span class="literal1">Basketball</span> sprite is touching the <span class="literal1">Hitbox</span> sprite.</p></li>
+<li value="2" class="calibre17"><p class="noindent">The <span class="literal1">y velocity</span> variable is negative (the basketball is falling down).</p></li>
+<li value="3" class="calibre17"><p class="noindent">The <span class="literal1">made basket</span> variable is set to <span class="literal1">no</span>.</p></li>
+</ol>
+<p class="indent">The first time the <span class="literal1">Basketball</span> sprite detects it has made a basket, it increases <span class="literal1">Player 1 Score</span> by 1 point and sets <span class="literal1">made basket</span> to <span class="literal1">yes</span>. In future checks for that shot, <span class="literal1">made basket</span> will not be equal to <span class="literal1">no</span>, so the basket is no longer detected. The <span class="literal1">made basket</span> variable resets to <span class="literal1">no</span> the next time the player presses the spacebar to throw the basketball.</p>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-528"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Shoot some baskets. Make sure that <span class="literal1">Player 1 Score</span> increases by only 1 point for each basket. Then click the red stop sign and save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-116"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-311" class="calibre1"></span><strong class="calibre2">THE COMPLETE PROGRAM</strong></h3>
+<p class="noindent">Here is the final code. If your program isn’t working correctly, check your code against this code.</p>
+<div class="image"><img src="images/00291.jpeg" alt="image" class="calibre3" /></div>
+<div class="image"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-318"></span><img src="images/00292.jpeg" alt="image" class="calibre3" /></div>
+<h3 class="h2" id="calibre_link-117"><strong class="calibre2">VERSION 2.0: TWO-PLAYER MODE</strong></h3>
+<p class="noindent">Let’s upgrade the <em class="calibre6">Basketball</em> game by adding a second player. This will be easy since the second player’s code will be almost identical to the first player’s code.</p>
+<h4 class="h3" id="calibre_link-118"><strong class="calibre2">Duplicate the Cat and Basketball Sprites</strong></h4>
+<p class="noindent">Duplicate the <span class="literal1">Cat</span> sprite and the <span class="literal1">Basketball</span> sprite by right-clicking them in the Sprite List and selecting <strong class="calibre5">duplicate</strong>. Select the new <span class="literal1">Cat2</span> sprite and click the <strong class="calibre5">Costumes</strong> tab at the top of the Blocks Area. Use the Fill tool to make the cat blue. <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-529"></span>Then click the <strong class="calibre5">Flip left-right</strong> button at the top-right corner of the Paint Editor to make the second player shoot for the hoop from the other side.</p>
+<div class="image"><img src="images/00293.jpeg" alt="image" class="calibre3" /></div>
+<h4 class="h3" id="calibre_link-119"><strong class="calibre2">Modify the Code for the Cat2 Sprite</strong></h4>
+<p class="noindent">Change the code in the new <span class="literal1">Cat2</span> sprite to match this:</p>
+<div class="image"><img src="images/00146.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-433"></span>Now two different players will be able to play the game using the same keyboard. Each cat will be controlled by its own unique keys.</p>
+<h4 class="h3" id="calibre_link-120"><strong class="calibre2">Modify the Code for the Basketball2 Sprite</strong></h4>
+<p class="noindent">The second player will need their own variable for keeping score. From the orange <em class="calibre6">Data</em> category, click the <strong class="calibre5">Make a Variable</strong> button, name the variable <span class="literal1">Player 2 Score</span>, and select <strong class="calibre5">For all sprites</strong>. Change the code in the new <span class="literal1">Basketball2</span> sprite to match the code shown here.</p>
+<div class="image"><img src="images/00130.jpeg" alt="image" class="calibre3" /></div>
+<p class="indent">This code makes the basketball thrown by the second player go to the left and assigns the <span class="literal1">Player 2 Score</span> variable to the second player. You can rename a variable by going to the <span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-313"></span>orange <em class="calibre6">Data</em> category, right-clicking the variable, and selecting <strong class="calibre5">Rename variable</strong>.</p>
+<h3 class="h2" id="calibre_link-121"><strong class="calibre2">CHEAT MODE: FREEZE THE HOOP</strong></h3>
+<p class="noindent">The moving basketball hoop is a hard target to hit. Let’s add a cheat that will freeze it in place for a few seconds when a player presses the 7 key.</p>
+<p class="indent">Select the <span class="literal1">Hoop</span> sprite, and click the <strong class="calibre5">Make a Variable</strong> button to create a new For this sprite only variable named <span class="literal1">freeze</span>. Then modify the code for the <span class="literal1">Hoop</span> sprite to match the following code.</p>
+<div class="image"><img src="images/00213.jpeg" alt="image" class="calibre3" /></div>
+<div class="sidebarg">
+<p class="sidebartg" id="calibre_link-530"><strong class="calibre2">SAVE POINT</strong></p>
+<div class="image1"><img src="images/00114.jpeg" alt="image" class="calibre3" /></div>
+<p class="noindent">Click the green flag to test the code so far. Press the 7 key, and make sure the hoop stops gliding to new positions for 6 seconds. Then click the red stop sign and save your program.</p>
+</div>
+<h3 class="h2" id="calibre_link-122"><span {http://www.idpf.org/2007/ops}type="pagebreak" id="calibre_link-531" class="calibre1"></span><strong class="calibre2">SUMMARY</strong></h3>
+<p class="noindent">In this chapter, you built a game that</p>
+<p class="arrowt"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Implements gravity and realistic falling</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has a side-view perspective instead of a top-down view</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Uses variables to keep track of scores, falling speeds, and the first time a basket is made</p>
+<p class="arrow"><img src="images/00010.jpeg" alt="image" class="calibre3" /> Has a hitbox to detect when a basket is made</p>
+<p class="indentt">The use of gravity in this program was pretty simple. By the time you reach <a href="#calibre_link-1" class="calibre4">Chapter 9</a>, you’ll be able to make an advanced platformer game with more complex jumping and falling. But there are plenty of Scratch programming techniques to practice first. In <a href="#calibre_link-2" class="calibre4">Chapter 5</a>, you’ll make a side-view game that uses cloning to duplicate a sprite dozens of times.</p>
+<div class="sidebarb">
+<p class="sidebartb" id="calibre_link-123"><strong class="calibre2">REVIEW QUESTIONS</strong></p>
+<p class="noindent">Try to answer the following practice questions to test what you’ve learned. You probably won’t know all the answers off the top of your head, but you can explore the Scratch editor to figure out the answers. (The answers are also online at <em class="calibre6"><a href="http://www.nostarch.com/scratchplayground/" class="calibre4">http://www.nostarch.com/scratchplayground/</a></em>.)</p>
+<ol class="calibre16">
+<li value="1" class="calibre17"><p class="noindent">How is a side-view game (like the <em class="calibre6">Basketball</em> game) different from a top-down game (like the <em class="calibre6">Maze Runner</em> game)?</p></li>
+<li value="2" class="calibre17"><p class="noindent">What can a variable store?</p></li>
+<li value="3" class="calibre17"><p class="noindent">What is the difference between For this sprite only and For all sprites?</p></li>
+<li value="4" class="calibre17"><p class="noindent">How can you make a sprite jump?</p></li>
+<li value="5" class="calibre17"><p class="noindent">When the cat jumps in the <em class="calibre6">Basketball</em> game, what keeps it from just going up forever?</p></li>
+<li value="6" class="calibre17"><p class="noindent">What is the difference between the <span class="literal1"><strong class="calibre5">glide</strong></span> and <span class="literal1"><strong class="calibre5">go to x y</strong></span> blocks?</p></li>
+<li value="7" class="calibre17"><p class="noindent">How do you make the code inside an <span class="literal1"><strong class="calibre5">if then</strong></span> block run if <em class="calibre6">two</em> conditions are true?</p></li>
+</ol>
+</div>
+</div>
+
+</body></html>

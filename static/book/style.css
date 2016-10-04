@@ -1,0 +1,983 @@
+.arrow {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 1em;
+    margin-right: 0;
+    margin-top: 0.5em;
+    text-align: left;
+    text-indent: -1em
+    }
+.arrowt {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 1em;
+    margin-right: 0;
+    margin-top: 0.8em;
+    text-align: left;
+    text-indent: -1em
+    }
+.author {
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.8em;
+    text-align: center
+    }
+.blue {
+    color: #3897d3;
+    line-height: 1.2
+    }
+.blue1 {
+    color: #3897d3
+    }
+.bull {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0.8em;
+    margin-right: 0;
+    margin-top: 0.5em;
+    text-align: left;
+    text-indent: -0.8em
+    }
+.calibre {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 0;
+    margin-left: 5pt;
+    margin-right: 5pt;
+    margin-top: 0;
+    padding-left: 0;
+    padding-right: 0
+    }
+.calibre1 {
+    line-height: 1.2
+    }
+.calibre2 {
+    font-weight: bold;
+    line-height: 1.2
+    }
+.calibre3 {
+    height: auto;
+    width: auto
+    }
+.calibre4 {
+    color: #000;
+    text-decoration: none
+    }
+.calibre5 {
+    font-weight: bold
+    }
+.calibre6 {
+    font-style: italic
+    }
+.calibre7 {
+    display: block
+    }
+.calibre8 {
+    color: #000;
+    line-height: 1.2;
+    text-decoration: none
+    }
+.calibre9 {
+    display: block;
+    line-height: 1.2
+    }
+.calibre10 {
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-indent: 0
+    }
+.calibre11 {
+    display: table-row-group;
+    vertical-align: middle
+    }
+.calibre12 {
+    display: table-row;
+    vertical-align: inherit
+    }
+.calibre13 {
+    display: table-cell;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: inherit;
+    vertical-align: middle
+    }
+.calibre14 {
+    height: auto;
+    line-height: 1.2;
+    width: auto
+    }
+.calibre15 {
+    font-size: 0.75em
+    }
+.calibre16 {
+    display: block;
+    list-style-type: decimal;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em
+    }
+.calibre17 {
+    display: list-item
+    }
+.calibre18 {
+    display: table-header-group;
+    vertical-align: middle
+    }
+.calibre19 {
+    font-size: 0.75em;
+    line-height: normal;
+    vertical-align: super
+    }
+.circk {
+    background-color: #3e75b8;
+    border-radius: 1em;
+    color: #FFF;
+    padding-bottom: 0.2em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    padding-top: 0.2em
+    }
+.copy {
+    display: block;
+    font-family: "JansonTextLTStd";
+    font-size: 0.83333em;
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em
+    }
+.copy1 {
+    display: block;
+    font-family: "JansonTextLTStd";
+    font-size: 0.83333em;
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.1em
+    }
+.copy1a {
+    display: block;
+    font-family: "JansonTextLTStd";
+    font-size: 0.83333em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em
+    }
+.copya {
+    display: block;
+    font-family: "JansonTextLTStd";
+    font-size: 0.83333em;
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 2em
+    }
+.copyi {
+    display: block;
+    font-family: "JansonTextLTStd";
+    font-size: 0.83333em;
+    margin-bottom: 0.1em;
+    margin-left: 1.4em;
+    margin-right: 0;
+    margin-top: 0.1em;
+    text-indent: -1.4em
+    }
+.ded {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 3.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5em;
+    text-align: center
+    }
+.ent {
+    font-family: "ArialUnicodeMS"
+    }
+.ent1 {
+    color: #3897d3;
+    font-family: "ArialUnicodeMS"
+    }
+.h {
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    page-break-before: always;
+    text-align: center
+    }
+.h1 {
+    color: #a1cd38;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5em;
+    page-break-before: always;
+    text-align: center
+    }
+.h2 {
+    color: #3897d3;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.2em;
+    text-align: left
+    }
+.h2a {
+    color: #3897d3;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.83333em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5em;
+    page-break-before: always;
+    text-align: left
+    }
+.h2b {
+    color: #a1cd38;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5em;
+    page-break-before: always;
+    text-align: left
+    }
+.h2bc {
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5em;
+    page-break-before: always;
+    text-align: center
+    }
+.h2c {
+    color: #3897d3;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5em;
+    page-break-before: always;
+    text-align: left
+    }
+.h3 {
+    color: #3897d3;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    text-align: left
+    }
+.h3a {
+    color: #3897d3;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    text-align: left;
+    text-indent: 0
+    }
+.h3b {
+    color: #f8951d;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.29167em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    text-align: center
+    }
+.h4a {
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.29167em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    text-align: left
+    }
+.image {
+    clear: both;
+    display: block;
+    margin-bottom: 0.8em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.8em;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: center
+    }
+.image1 {
+    clear: both;
+    display: block;
+    margin-bottom: 0.2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.2em;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: right
+    }
+.image2 {
+    clear: both;
+    display: block;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.2em;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: left
+    }
+.imagef {
+    clear: both;
+    display: block;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    text-align: left
+    }
+.indent {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: left;
+    text-indent: 1.8em
+    }
+.indentt {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.8em;
+    text-align: left;
+    text-indent: 1.3em
+    }
+.index_h {
+    color: #3897d3;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.29167em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.2em;
+    text-align: left
+    }
+.indexmain {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0;
+    margin-left: 3.2em;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: left;
+    text-indent: -3.2em
+    }
+.indexsub {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0;
+    margin-left: 3.2em;
+    margin-right: 0;
+    margin-top: 0.1em;
+    text-align: left;
+    text-indent: -2.2em
+    }
+.literal {
+    font-family: "Courier";
+    font-size: 0.9em
+    }
+.literal1 {
+    font-family: "TradeGothicLTStd";
+    font-weight: normal
+    }
+.middle {
+    height: auto;
+    line-height: 1.2;
+    vertical-align: middle;
+    width: auto
+    }
+.noindent {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.6em;
+    text-align: left
+    }
+.noindenta {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: left
+    }
+.noindentf {
+    display: block;
+    font-family: "JansonTextLTStd";
+    font-size: 1.29167em;
+    line-height: 1.2;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.6em;
+    text-align: left
+    }
+.noindentt {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5em;
+    text-align: left
+    }
+.note {
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 0.1em;
+    border-left-color: black;
+    border-left-style: solid;
+    border-left-width: 0.1em;
+    border-right-color: black;
+    border-right-style: solid;
+    border-right-width: 0.1em;
+    border-top-color: black;
+    border-top-style: solid;
+    border-top-width: 0.1em;
+    display: block;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-top: 1em;
+    padding-bottom: 0.5em;
+    padding-left: 0;
+    padding-right: 0.5em;
+    padding-top: 0;
+    text-align: left
+    }
+.notep {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.2em;
+    text-align: left
+    }
+.notet {
+    color: #e1a825;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.29167em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.1em
+    }
+.orange {
+    background-color: #f8951d;
+    border-radius: 0.7em;
+    color: #FFF;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.5em
+    }
+.orange1 {
+    color: #f8951d
+    }
+.order {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 1.2em;
+    margin-right: 0;
+    margin-top: 0.5em;
+    text-align: left;
+    text-indent: -1.2em
+    }
+.ordert {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 1.2em;
+    margin-right: 0;
+    margin-top: 0.8em;
+    text-align: left;
+    text-indent: -1.2em
+    }
+.pub {
+    display: block;
+    margin-top: 2em;
+    text-align: center
+    }
+.pub1 {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5em;
+    text-align: center
+    }
+.side {
+    background-color: #d9e4f4;
+    border-bottom-color: #000;
+    border-bottom-style: solid;
+    border-bottom-width: 0.1em;
+    border-left-color: #000;
+    border-left-style: solid;
+    border-left-width: 0.1em;
+    border-radius: 0.8em;
+    border-right-color: #000;
+    border-right-style: solid;
+    border-right-width: 0.1em;
+    border-top-color: #000;
+    border-top-style: solid;
+    border-top-width: 0.1em;
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-bottom: 0.8em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.8em
+    }
+.side1 {
+    border-bottom-color: #000;
+    border-bottom-style: solid;
+    border-bottom-width: 0.1em;
+    border-left-color: #000;
+    border-left-style: solid;
+    border-left-width: 0.1em;
+    border-radius: 0.8em;
+    border-right-color: #000;
+    border-right-style: solid;
+    border-right-width: 0.1em;
+    border-top-color: #000;
+    border-top-style: solid;
+    border-top-width: 0.1em;
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-bottom: 0.8em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.8em
+    }
+.sidebarb {
+    background-color: #eee8f3;
+    border-bottom-color: #9458a2;
+    border-bottom-style: solid;
+    border-bottom-width: 0.2em;
+    border-left-color: #9458a2;
+    border-left-style: solid;
+    border-left-width: 0.2em;
+    border-radius: 0.8em;
+    border-right-color: #9458a2;
+    border-right-style: solid;
+    border-right-width: 0.2em;
+    border-top-color: #9458a2;
+    border-top-style: solid;
+    border-top-width: 0.2em;
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-bottom: 0.8em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.8em
+    }
+.sidebarg {
+    background-color: #f3f8e8;
+    border-bottom-color: #a1cd3a;
+    border-bottom-style: solid;
+    border-bottom-width: 0.2em;
+    border-left-color: #a1cd3a;
+    border-left-style: solid;
+    border-left-width: 0.2em;
+    border-radius: 0.8em;
+    border-right-color: #a1cd3a;
+    border-right-style: solid;
+    border-right-width: 0.2em;
+    border-top-color: #a1cd3a;
+    border-top-style: solid;
+    border-top-width: 0.2em;
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-bottom: 0.8em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.8em
+    }
+.sidebartb {
+    color: #9458a2;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: left
+    }
+.sidebartg {
+    color: #a1cd3a;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    line-height: 1.2;
+    margin-bottom: 0.2em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: left
+    }
+.sidebarty {
+    color: #e1a825;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: left
+    }
+.sidebary {
+    border-bottom-color: #e1a825;
+    border-bottom-style: solid;
+    border-bottom-width: 0.2em;
+    border-left-color: #e1a825;
+    border-left-style: solid;
+    border-left-width: 0.2em;
+    border-radius: 0.8em;
+    border-right-color: #e1a825;
+    border-right-style: solid;
+    border-right-width: 0.2em;
+    border-top-color: #e1a825;
+    border-top-style: solid;
+    border-top-width: 0.2em;
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding-bottom: 0.8em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.8em
+    }
+.sidet {
+    color: #3b88c2;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 2em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: left
+    }
+.sidet1 {
+    color: #000;
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: center
+    }
+.subtitle {
+    display: block;
+    font-family: "TradeGothicLTStd";
+    font-size: 1.66667em;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.1em;
+    text-align: center
+    }
+.table {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0.5em;
+    margin-right: 0;
+    margin-top: 0.2em;
+    text-align: left
+    }
+.table_th {
+    background-color: #f2d7a3;
+    border-bottom-color: #e1a825;
+    border-bottom-style: solid;
+    border-bottom-width: 0.2em;
+    border-top-color: #e1a825;
+    border-top-style: solid;
+    border-top-width: 0.2em;
+    display: table-cell;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: left;
+    vertical-align: top
+    }
+.table1 {
+    background-color: #faf2e3;
+    display: table-cell;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: left;
+    vertical-align: top
+    }
+.table2 {
+    background-color: #faf2e3;
+    border-bottom-color: #e1a825;
+    border-bottom-style: solid;
+    border-bottom-width: 0.2em;
+    display: table-cell;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0.5em;
+    margin-top: 0.2em;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-top: 1px;
+    text-align: left;
+    vertical-align: top
+    }
+.tabletb {
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    text-indent: 0
+    }
+.toc {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.5em;
+    text-align: left
+    }
+.tocchap {
+    display: block;
+    font-family: "JansonTextLTStd";
+    font-size: 1.29167em;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5em;
+    text-align: left
+    }
+.tocsec {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0.1em;
+    text-align: left
+    }
+.tocsec1 {
+    display: block;
+    font-family: "JansonTextLTStd";
+    margin-bottom: 0.1em;
+    margin-left: 2.7em;
+    margin-right: 0;
+    margin-top: 0.1em;
+    text-align: left
+    }
+
+@page {
+    margin-bottom: 5pt;
+    margin-top: 5pt
+    }
+@font-face {
+    font-family: "TradeGothicLTStd";
+    src: url(fonts/00001.otf);
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "TradeGothicLTStd";
+    src: url(fonts/00002.otf);
+    font-style: italic;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "TradeGothicLTStd";
+    src: url(fonts/00003.otf);
+    font-style: normal;
+    font-weight: bold
+    }
+@font-face {
+    font-family: "TradeGothicLTStd";
+    src: url(fonts/00004.otf);
+    font-style: italic;
+    font-weight: bold
+    }
+@font-face {
+    font-family: "JansonTextLTStd";
+    src: url(fonts/00005.otf);
+    font-style: normal;
+    font-weight: bold
+    }
+@font-face {
+    font-family: "JansonTextLTStd";
+    src: url(fonts/00006.otf);
+    font-style: italic;
+    font-weight: bold
+    }
+@font-face {
+    font-family: "JansonTextLTStd";
+    src: url(fonts/00007.otf);
+    font-style: italic;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "JansonTextLTStd";
+    src: url(fonts/00008.otf);
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "ArialUnicodeMS";
+    src: url(fonts/00009.ttf);
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "Courier";
+    src: url(fonts/00010.otf);
+    font-style: normal;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "Courier";
+    src: url(fonts/00011.otf);
+    font-style: normal;
+    font-weight: bold
+    }
+@font-face {
+    font-family: "Courier";
+    src: url(fonts/00012.otf);
+    font-style: italic;
+    font-weight: normal
+    }
+@font-face {
+    font-family: "Courier";
+    src: url(fonts/00013.otf);
+    font-style: italic;
+    font-weight: bold
+    }
+
