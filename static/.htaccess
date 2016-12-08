@@ -168,6 +168,8 @@
 
     RewriteRule ^buybook https://www.amazon.com/gp/product/1593277628/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1593277628&linkCode=as2&tag=playwithpyth-20&linkId=e1bab2be778d545e718c8aed8427ea8e [NE,R,L]
 
+    RewriteRule ^class$  https://www.udemy.com/scratch-game-programming/?couponCode=GET_SCRATCHING [NE,R,L]
+
     RewriteRule ^pendemo$ https://scratch.mit.edu/projects/110759089/ [NE,R,L]
 
     # RewriteRule ^explosions$ /Explosions/ [NE,R,L]
@@ -180,8 +182,6 @@
     RewriteRule ^direction$ https://scratch.mit.edu/projects/117649305/ [NE,R,L]
     RewriteRule ^direction/$ https://scratch.mit.edu/projects/117649305/ [NE,R,L]
 
-    RewriteRule ^demoscene$ https://inventwithscratch.com/demoscene-examples/ [NE,R,L]
-    RewriteRule ^demoscene/$ https://inventwithscratch.com/demoscene-examples/ [NE,R,L]
 
     # Skeleton project files
     # RewriteRule ^$ https://scratch.mit.edu/projects/???/ [NE,R,L]
